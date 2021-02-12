@@ -1,0 +1,251 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K20 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"28 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\interrupts.c
+[v _high_isr high_isr `IIH(v  1 e 1 0 ]
+"80
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+"40 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+[v _Neutral_Init Neutral_Init `(ui  1 e 2 0 ]
+"54
+[v _Continous_Read Continous_Read `(ui  1 e 2 0 ]
+"76
+[v _main main `(v  1 e 1 0 ]
+"24 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+"28 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+"1184 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+[s S85 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"2508
+[s S94 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S103 . 1 `S85 1 . 1 0 `S94 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES103  1 e 1 @3988 ]
+"2698
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4950
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
+"5039
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
+"5308
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"5686
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+[s S130 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"5707
+[s S134 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S142 . 1 `S130 1 . 1 0 `S134 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES142  1 e 1 @4042 ]
+"5757
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"5867
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"7352
+[v _ACQT0 ACQT0 `VEb  1 e 0 @32259 ]
+"7355
+[v _ACQT1 ACQT1 `VEb  1 e 0 @32260 ]
+"7358
+[v _ACQT2 ACQT2 `VEb  1 e 0 @32261 ]
+"7361
+[v _ADCS0 ADCS0 `VEb  1 e 0 @32256 ]
+"7364
+[v _ADCS1 ADCS1 `VEb  1 e 0 @32257 ]
+"7367
+[v _ADCS2 ADCS2 `VEb  1 e 0 @32258 ]
+"7376
+[v _ADFM ADFM `VEb  1 e 0 @32263 ]
+"7382
+[v _ADIF ADIF `VEb  1 e 0 @31990 ]
+"7388
+[v _ADON ADON `VEb  1 e 0 @32272 ]
+"7430
+[v _ANS0 ANS0 `VEb  1 e 0 @31728 ]
+"7658
+[v _CHS0 CHS0 `VEb  1 e 0 @32274 ]
+"7661
+[v _CHS1 CHS1 `VEb  1 e 0 @32275 ]
+"7664
+[v _CHS2 CHS2 `VEb  1 e 0 @32276 ]
+"7667
+[v _CHS3 CHS3 `VEb  1 e 0 @32277 ]
+"7853
+[v _GO GO `VEb  1 e 0 @32273 ]
+"9026
+[v _TRISA0 TRISA0 `VEb  1 e 0 @31888 ]
+"9206
+[v _VCFG0 VCFG0 `VEb  1 e 0 @32268 ]
+"9212
+[v _VCFG1 VCFG1 `VEb  1 e 0 @32269 ]
+"28 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+[v _neutral_pos neutral_pos `ui  1 e 2 0 ]
+"29
+[v _real_pos real_pos `ui  1 e 2 0 ]
+"30
+[v _max_pos max_pos `ui  1 e 2 0 ]
+"31
+[v _min_pos min_pos `ui  1 e 2 0 ]
+"76
+[v _main main `(v  1 e 1 0 ]
+{
+"127
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 11 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 10 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 1 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 9 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 73 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 72 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 64 ]
+"70
+} 0
+"245 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcadd.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@b b `d  1 p 4 56 ]
+[v ___flsub@a a `d  1 p 4 60 ]
+"250
+} 0
+"10
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 55 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 54 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 53 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 52 ]
+"10
+[v ___fladd@b b `d  1 p 4 40 ]
+[v ___fladd@a a `d  1 p 4 44 ]
+"237
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S472 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S477 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S480 . 4 `l 1 i 4 0 `d 1 f 4 0 `S472 1 fAsBytes 4 0 `S477 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S480  1 a 4 34 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 28 ]
+[s S548 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S551 . 2 `s 1 i 2 0 `us 1 n 2 0 `S548 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S551  1 a 2 38 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 33 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 32 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 27 ]
+"8
+[v ___flmul@b b `d  1 p 4 15 ]
+[v ___flmul@a a `d  1 p 4 19 ]
+"205
+} 0
+"40 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+[v _Neutral_Init Neutral_Init `(ui  1 e 2 0 ]
+{
+"48
+} 0
+"28 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+{
+"81
+} 0
+"54 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+[v _Continous_Read Continous_Read `(ui  1 e 2 0 ]
+{
+"60
+} 0
+"24 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+{
+"31
+} 0
+"80 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\interrupts.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+{
+"115
+} 0
+"28
+[v _high_isr high_isr `IIH(v  1 e 1 0 ]
+{
+"47
+} 0
