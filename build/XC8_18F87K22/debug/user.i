@@ -4957,18 +4957,5 @@ void InitApp(void)
     ADON = 1;
 
     ADIF = 0;
-
-    TRISCbits.TRISC2=0;
-    PR2=0x65;
-    CCPR1L=1;
-    T2CON=0;
-    CCP1CON=0x0C;
-    TMR2=0;
-    T2CONbits.TMR2ON=1;
-
-
-
-
-
-
+# 76 "user.c"
 }

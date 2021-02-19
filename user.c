@@ -65,17 +65,12 @@ void InitApp(void)
     
     ADIF = 0; // clear ADC interrupt flag
     
-    TRISCbits.TRISC2=0;  /* Set CCP1 pin (17) as output for PWM out */
-    PR2=0x65;             /* load period value in PR2 register */ 
-    CCPR1L=1;            /* load duty cycle */
-    T2CON=0;             /* no pre-scalar,timer2 is off */
-    CCP1CON=0x0C;        /* set PWM mode and no decimal value for PWM */
-    TMR2=0;
-    T2CONbits.TMR2ON=1;
     
     //GIE = 1; // enables global interrupts
     //PEIE= 1; // enables all unmasked peripheral interrupts
     
     //ADIE = 1; //enables A/D converter interrupt
+    
+    
      
 }

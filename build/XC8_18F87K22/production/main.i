@@ -4941,7 +4941,7 @@ unsigned int duty_cycle;
 unsigned int Neutral_Init(){
 
   PORTD=0xFF;
-  _delay((unsigned long)((2)*(8000000/4000.0)));
+
   GO = 1;
   return (ADRESH);
 
@@ -4954,7 +4954,7 @@ unsigned int Neutral_Init(){
 
 unsigned int Continous_Read(){
 
-  _delay((unsigned long)((2)*(8000000/4000.0)));
+
   GO = 1;
   return (ADRESH);
 
@@ -4965,7 +4965,7 @@ unsigned int Continous_Read(){
 
 unsigned int Vibration_ON(){
 
-  _delay((unsigned long)((2)*(8000000/4000.0)));
+
 
 
 }
@@ -4976,6 +4976,9 @@ unsigned int Vibration_ON(){
 
 void main(void)
 {
+    real_pos = 0x00;
+    neutral_pos = 0x00;
+
 
     ConfigureOscillator();
 
@@ -4986,7 +4989,7 @@ void main(void)
 
     neutral_pos = Neutral_Init();
 
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+
 
     PORTD=0x00;
 
@@ -5007,15 +5010,12 @@ void main(void)
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
 
       PORTD=0x00;
-      _delay((unsigned long)((10)*(8000000/4000.0)));
+
      }
 
      else{
 
      PORTD=0xFF;
-
-
-
 
 
      }
