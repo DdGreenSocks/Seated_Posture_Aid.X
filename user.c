@@ -65,44 +65,20 @@ void InitApp(void)
     
     ADIF = 0; // clear ADC interrupt flag
     
-    
-    GIE = 1; // enables global interrupts
-    PEIE= 1; // enables all unmasked peripheral interrupts
-    
-    ADIE = 1; //enables A/D converter interrupt
-    
-    
-     
-}
-
-/******************************************************************************/
-/* Function to get Initial Flex Reading                                                             */
-/******************************************************************************/
-
-
-unsigned int Neutral_Init(){
-  unsigned int neutral_pos;  
-  
-  PORTD=0xFF; 
-  //__delay_ms(2); //Acquisition time to charge hold capacitor
-  GO = 1; //Initializes A/D Conversion
-  neutral_pos = ADRESL;
-  return (neutral_pos +(ADRESH<<8)); //Returns Result
-    
-  
-}
-
-
-/******************************************************************************/
-/* Function to get Continuous Flex Reading                                                               */
-/******************************************************************************/
-
-unsigned int Continous_Read(){
    
-    unsigned int real_pos;
- // __delay_ms(2); //Acquisition time to charge hold capacitor
-  GO = 1; //Initializes A/D Conversion
-  //ADRESH = real_pos;
-  return (ADRESH); //Returns Result 
- 
+    
+   // GIE = 1; // enables global interrupts
+    //PEIE= 1; // enables all unmasked peripheral interrupts
+    
+
+    
+    
+
+    //ADIE = 1; //enables A/D converter interrupt
+
+
+
+
+
+
 }

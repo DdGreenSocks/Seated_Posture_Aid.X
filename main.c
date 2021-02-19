@@ -39,8 +39,39 @@ unsigned int min_pos;
 unsigned int duty_cycle; 
 /* i.e. uint8_t <variable_name>; */
 
+/******************************************************************************/
+/* Function to get Initial Flex Reading                                                             */
+/******************************************************************************/
 
 
+unsigned int Neutral_Init(){
+    
+  PORTD=0xFF; 
+  
+  __delay_ms(2); //Acquisition time to charge hold capacitor
+  GO = 1; //Initializes A/D Conversion
+  int temp;
+  temp = ADRESL;
+  return temp + (ADRESH << 8);
+  
+    
+  
+}
+
+
+/******************************************************************************/
+/* Function to get Continuous Flex Reading                                                               */
+/******************************************************************************/
+
+unsigned int Continous_Read(){
+    
+  __delay_ms(2); //Acquisition time to charge hold capacitor
+  GO = 1; //Initializes A/D Conversion
+  int temp;
+  temp = ADRESL;
+  return temp + (ADRESH << 8);
+ 
+}
 
 
 /******************************************************************************/
@@ -48,7 +79,7 @@ unsigned int duty_cycle;
 /******************************************************************************/
 unsigned int Vibration_ON(){
     
-  //__delay_ms(2); 
+  __delay_ms(2); 
   
  
 }
@@ -59,9 +90,6 @@ unsigned int Vibration_ON(){
 
 void main(void)
 {
-    real_pos = 0x00;
-    neutral_pos = 0x00;
-    
     /* Configure the oscillator for the device */
     ConfigureOscillator();
 
@@ -72,12 +100,13 @@ void main(void)
  
     neutral_pos = Neutral_Init();//Initializes Flex sensor & initial records value
     
-    //__delay_ms(2);
+   
     
     PORTD=0x00; 
-    
-  
-    
+     __delay_ms(2);
+    PORTD=0xFF;
+     __delay_ms(2);
+     PORTD=0x00; 
     //LED Blinks once to show it has initialized
     
     
@@ -92,7 +121,7 @@ void main(void)
         
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
             
-          PORTD=0x00; //Lights turn OFF if Sensor is within 30% of initial value 
+      PORTD=0x00; //Lights turn OFF if Sensor is within 30% of initial value 
       //__delay_ms(10);
      }
      
@@ -100,7 +129,10 @@ void main(void)
            
      PORTD=0xFF; //Lights turn ON if Sensor is NOT within 30% of initial value 
         
-     
+     //CCPR1L = 50;   /* load duty cycle */
+     //PORTC=0XFF;
+     //__delay_ms(10);
+      
      }
         
    

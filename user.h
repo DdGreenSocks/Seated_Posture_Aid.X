@@ -12,6 +12,3 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 
-unsigned int Continous_Read(void); //ADC Interrupt 
-
-unsigned int Neutral_Init(void);

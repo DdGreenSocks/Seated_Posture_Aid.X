@@ -4919,10 +4919,6 @@ typedef uint32_t uint_fast32_t;
 # 1 "./user.h" 1
 # 13 "./user.h"
 void InitApp(void);
-
-unsigned int Continous_Read(void);
-
-unsigned int Neutral_Init(void);
 # 21 "user.c" 2
 
 
@@ -4961,45 +4957,5 @@ void InitApp(void)
     ADON = 1;
 
     ADIF = 0;
-
-
-    GIE = 1;
-    PEIE= 1;
-
-    ADIE = 1;
-
-
-
-}
-
-
-
-
-
-
-unsigned int Neutral_Init(){
-  unsigned int neutral_pos;
-
-  PORTD=0xFF;
-
-  GO = 1;
-  neutral_pos = ADRESL;
-  return (neutral_pos +(ADRESH<<8));
-
-
-}
-
-
-
-
-
-
-unsigned int Continous_Read(){
-
-    unsigned int real_pos;
-
-  GO = 1;
-
-  return (ADRESH);
-
+# 84 "user.c"
 }

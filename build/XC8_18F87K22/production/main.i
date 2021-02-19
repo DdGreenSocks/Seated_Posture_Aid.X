@@ -4919,10 +4919,6 @@ void ConfigureOscillator(void);
 # 1 "./user.h" 1
 # 13 "./user.h"
 void InitApp(void);
-
-unsigned int Continous_Read(void);
-
-unsigned int Neutral_Init(void);
 # 29 "main.c" 2
 
 
@@ -4935,10 +4931,49 @@ unsigned int real_pos;
 unsigned int max_pos;
 unsigned int min_pos;
 unsigned int duty_cycle;
-# 49 "main.c"
+
+
+
+
+
+
+
+unsigned int Neutral_Init(){
+
+  PORTD=0xFF;
+
+  _delay((unsigned long)((2)*(8000000/4000.0)));
+  GO = 1;
+  int temp;
+  temp = ADRESL;
+  return temp + (ADRESH << 8);
+
+
+
+}
+
+
+
+
+
+
+unsigned int Continous_Read(){
+
+  _delay((unsigned long)((2)*(8000000/4000.0)));
+  GO = 1;
+  int temp;
+  temp = ADRESL;
+  return temp + (ADRESH << 8);
+
+}
+
+
+
+
+
 unsigned int Vibration_ON(){
 
-
+  _delay((unsigned long)((2)*(8000000/4000.0)));
 
 
 }
@@ -4949,9 +4984,6 @@ unsigned int Vibration_ON(){
 
 void main(void)
 {
-    real_pos = 0x00;
-    neutral_pos = 0x00;
-
 
     ConfigureOscillator();
 
@@ -4965,9 +4997,10 @@ void main(void)
 
 
     PORTD=0x00;
-
-
-
+     _delay((unsigned long)((2)*(8000000/4000.0)));
+    PORTD=0xFF;
+     _delay((unsigned long)((2)*(8000000/4000.0)));
+     PORTD=0x00;
 
 
 
@@ -4982,13 +5015,16 @@ void main(void)
 
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
 
-          PORTD=0x00;
+      PORTD=0x00;
 
      }
 
      else{
 
      PORTD=0xFF;
+
+
+
 
 
      }

@@ -42,14 +42,14 @@ void high_isr(void)
 
 
 {
-        if (ADIF == 1) {
+       // if (ADIF == 1) {
 
-        neutral_pos = Neutral_Init();
+        //neutral_pos = Neutral_Init();
         
            
-        }
+       // }
          
-          ADIF = 0; 
+        //  ADIF = 0; 
         
 }
       /* This code stub shows general interrupt handling.  Note that these
@@ -96,14 +96,14 @@ void low_isr(void)
       Do not use a seperate if block for each interrupt flag to avoid run
       time errors. */
     
-    if (ADIF == 1) {
+   // if (ADIF == 1) {
 
-        real_pos = Continous_Read();
+       // real_pos = Continous_Read();
         
            
-        }
+       // }
          
-          ADIF = 0;
+        //  ADIF = 0;
         
 
 #if 0
