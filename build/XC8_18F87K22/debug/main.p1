@@ -1,13 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1184 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1184: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-"7853
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7853: extern volatile __bit GO __attribute__((address(0x7E11)));
-[v _GO `Vb ~T0 @X0 0 e@32273 ]
-"5308
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5308: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
 [p mainexit ]
 "19 ./system.h
 [; ;./system.h: 19: void ConfigureOscillator(void);
@@ -15,6 +6,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./user.h
 [; ;./user.h: 13: void InitApp(void);
 [v _InitApp `(v ~T0 @X0 0 ef ]
+"17
+[; ;./user.h: 17: unsigned int Neutral_Init(void);
+[v _Neutral_Init `(ui ~T0 @X0 0 ef ]
+"1184 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1184: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
+[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"15 ./user.h
+[; ;./user.h: 15: unsigned int Continous_Read(void);
+[v _Continous_Read `(ui ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -468,124 +468,87 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;main.c: 39: unsigned int duty_cycle;
 [v _duty_cycle `ui ~T0 @X0 1 e ]
-"47
-[; ;main.c: 47: unsigned int Neutral_Init(){
-[v _Neutral_Init `(ui ~T0 @X0 1 ef ]
-{
-[e :U _Neutral_Init ]
-[f ]
 "49
-[; ;main.c: 49:   PORTD=0xFF;
-[e = _PORTD -> -> 255 `i `uc ]
-"51
-[; ;main.c: 51:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"52
-[; ;main.c: 52:   return (ADRESH);
-[e ) -> _ADRESH `ui ]
-[e $UE 301  ]
-"55
-[; ;main.c: 55: }
-[e :UE 301 ]
-}
-"61
-[; ;main.c: 61: unsigned int Continous_Read(){
-[v _Continous_Read `(ui ~T0 @X0 1 ef ]
-{
-[e :U _Continous_Read ]
-[f ]
-"64
-[; ;main.c: 64:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"65
-[; ;main.c: 65:   return (ADRESH);
-[e ) -> _ADRESH `ui ]
-[e $UE 302  ]
-"67
-[; ;main.c: 67: }
-[e :UE 302 ]
-}
-"72
-[; ;main.c: 72: unsigned int Vibration_ON(){
+[; ;main.c: 49: unsigned int Vibration_ON(){
 [v _Vibration_ON `(ui ~T0 @X0 1 ef ]
 {
 [e :U _Vibration_ON ]
 [f ]
-"77
-[; ;main.c: 77: }
-[e :UE 303 ]
+"54
+[; ;main.c: 54: }
+[e :UE 301 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"83
-[; ;main.c: 83: void main(void)
+"60
+[; ;main.c: 60: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"84
-[; ;main.c: 84: {
+"61
+[; ;main.c: 61: {
 {
 [e :U _main ]
 [f ]
-"85
-[; ;main.c: 85:     real_pos = 0x00;
+"62
+[; ;main.c: 62:     real_pos = 0x00;
 [e = _real_pos -> -> 0 `i `ui ]
-"86
-[; ;main.c: 86:     neutral_pos = 0x00;
+"63
+[; ;main.c: 63:     neutral_pos = 0x00;
 [e = _neutral_pos -> -> 0 `i `ui ]
-"89
-[; ;main.c: 89:     ConfigureOscillator();
+"66
+[; ;main.c: 66:     ConfigureOscillator();
 [e ( _ConfigureOscillator ..  ]
-"92
-[; ;main.c: 92:     InitApp();
+"69
+[; ;main.c: 69:     InitApp();
 [e ( _InitApp ..  ]
-"96
-[; ;main.c: 96:     neutral_pos = Neutral_Init();
+"73
+[; ;main.c: 73:     neutral_pos = Neutral_Init();
 [e = _neutral_pos ( _Neutral_Init ..  ]
-"100
-[; ;main.c: 100:     PORTD=0x00;
+"77
+[; ;main.c: 77:     PORTD=0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"107
-[; ;main.c: 107:     min_pos = neutral_pos - (neutral_pos*0.20);
+"84
+[; ;main.c: 84:     min_pos = neutral_pos - (neutral_pos*0.20);
 [e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"108
-[; ;main.c: 108:     max_pos = neutral_pos + (neutral_pos*0.20);
+"85
+[; ;main.c: 85:     max_pos = neutral_pos + (neutral_pos*0.20);
 [e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"111
-[; ;main.c: 111:     while(1)
-[e :U 306 ]
-"112
-[; ;main.c: 112:    {
+"88
+[; ;main.c: 88:     while(1)
+[e :U 304 ]
+"89
+[; ;main.c: 89:    {
 {
-"114
-[; ;main.c: 114:     real_pos = Continous_Read();
+"91
+[; ;main.c: 91:     real_pos = Continous_Read();
 [e = _real_pos ( _Continous_Read ..  ]
-"116
-[; ;main.c: 116:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
-[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 308  ]
+"93
+[; ;main.c: 93:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 306  ]
 {
-"118
-[; ;main.c: 118:           PORTD=0x00;
+"95
+[; ;main.c: 95:           PORTD=0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"120
-[; ;main.c: 120:      }
+"97
+[; ;main.c: 97:      }
 }
-[e $U 309  ]
-"122
-[; ;main.c: 122:      else{
-[e :U 308 ]
+[e $U 307  ]
+"99
+[; ;main.c: 99:      else{
+[e :U 306 ]
 {
-"124
-[; ;main.c: 124:      PORTD=0xFF;
+"101
+[; ;main.c: 101:      PORTD=0xFF;
 [e = _PORTD -> -> 255 `i `uc ]
-"127
-[; ;main.c: 127:      }
+"104
+[; ;main.c: 104:      }
 }
-[e :U 309 ]
-"131
-[; ;main.c: 131: }
-}
-[e :U 305 ]
-[e $U 306  ]
 [e :U 307 ]
-"134
-[; ;main.c: 134: }
-[e :UE 304 ]
+"108
+[; ;main.c: 108: }
+}
+[e :U 303 ]
+[e $U 304  ]
+[e :U 305 ]
+"111
+[; ;main.c: 111: }
+[e :UE 302 ]
 }

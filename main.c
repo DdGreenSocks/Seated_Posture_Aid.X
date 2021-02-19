@@ -39,32 +39,9 @@ unsigned int min_pos;
 unsigned int duty_cycle; 
 /* i.e. uint8_t <variable_name>; */
 
-/******************************************************************************/
-/* Function to get Initial Flex Reading                                                             */
-/******************************************************************************/
 
 
-unsigned int Neutral_Init(){
-    
-  PORTD=0xFF; 
-  //__delay_ms(2); //Acquisition time to charge hold capacitor
-  GO = 1; //Initializes A/D Conversion
-  return (ADRESH); //Returns Result
-    
-  
-}
 
-/******************************************************************************/
-/* Function to get Continuous Flex Reading                                                               */
-/******************************************************************************/
-
-unsigned int Continous_Read(){
-    
- // __delay_ms(2); //Acquisition time to charge hold capacitor
-  GO = 1; //Initializes A/D Conversion
-  return (ADRESH); //Returns Result 
- 
-}
 
 /******************************************************************************/
 /* Function to operate Vibration Motor                                                              */

@@ -1,7 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T40 __interrupt high_priority ]
+"7382 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7382: extern volatile __bit ADIF __attribute__((address(0x7CF6)));
+[v _ADIF `Vb ~T0 @X0 0 e@31990 ]
+"17 ./user.h
+[; ;./user.h: 17: unsigned int Neutral_Init(void);
+[v _Neutral_Init `(ui ~T0 @X0 0 ef ]
 [t T41 __interrupt low_priority ]
+"15
+[; ;./user.h: 15: unsigned int Continous_Read(void);
+[v _Continous_Read `(ui ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -440,29 +449,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"30 interrupts.c
+[; ;interrupts.c: 30: unsigned int real_pos;
+[v _real_pos `ui ~T0 @X0 1 e ]
+"31
+[; ;interrupts.c: 31: unsigned int neutral_pos;
+[v _neutral_pos `ui ~T0 @X0 1 e ]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"28 interrupts.c
-[; ;interrupts.c: 28: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
+"34
+[; ;interrupts.c: 34: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 [v _high_isr `(v ~T40 @X0 1 ef ]
-"37
-[; ;interrupts.c: 37: {
+"44
+[; ;interrupts.c: 44: {
 {
 [e :U _high_isr ]
 [f ]
+"45
+[; ;interrupts.c: 45:         if (ADIF == 1) {
+[e $ ! == -> _ADIF `i -> 1 `i 302  ]
+{
 "47
-[; ;interrupts.c: 47:         }
+[; ;interrupts.c: 47:         neutral_pos = Neutral_Init();
+[e = _neutral_pos ( _Neutral_Init ..  ]
+"50
+[; ;interrupts.c: 50:         }
+}
+[e :U 302 ]
+"52
+[; ;interrupts.c: 52:           ADIF = 0;
+[e = _ADIF -> -> 0 `i `b ]
+"54
+[; ;interrupts.c: 54: }
 [e :UE 301 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"80
-[; ;interrupts.c: 80: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
+"84
+[; ;interrupts.c: 84: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 [v _low_isr `(v ~T41 @X0 1 ef ]
-"88
-[; ;interrupts.c: 88: {
+"92
+[; ;interrupts.c: 92: {
 {
 [e :U _low_isr ]
 [f ]
-"115
-[; ;interrupts.c: 115: }
-[e :UE 302 ]
+"99
+[; ;interrupts.c: 99:     if (ADIF == 1) {
+[e $ ! == -> _ADIF `i -> 1 `i 304  ]
+{
+"101
+[; ;interrupts.c: 101:         real_pos = Continous_Read();
+[e = _real_pos ( _Continous_Read ..  ]
+"104
+[; ;interrupts.c: 104:         }
+}
+[e :U 304 ]
+"106
+[; ;interrupts.c: 106:           ADIF = 0;
+[e = _ADIF -> -> 0 `i `b ]
+"129
+[; ;interrupts.c: 129: }
+[e :UE 303 ]
 }

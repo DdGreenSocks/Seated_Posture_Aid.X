@@ -5286,13 +5286,34 @@ double y0(double);
 double y1(double);
 double yn(int, double);
 # 18 "interrupts.c" 2
-# 28 "interrupts.c"
+
+# 1 "./user.h" 1
+# 13 "./user.h"
+void InitApp(void);
+
+unsigned int Continous_Read(void);
+
+unsigned int Neutral_Init(void);
+# 20 "interrupts.c" 2
+# 30 "interrupts.c"
+unsigned int real_pos;
+unsigned int neutral_pos;
+
+
 void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
-# 37 "interrupts.c"
+# 44 "interrupts.c"
 {
-# 47 "interrupts.c"
+        if (ADIF == 1) {
+
+        neutral_pos = Neutral_Init();
+
+
         }
-# 80 "interrupts.c"
+
+          ADIF = 0;
+
+}
+# 84 "interrupts.c"
 void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
@@ -5302,5 +5323,19 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
 {
-# 115 "interrupts.c"
+
+
+
+
+
+
+    if (ADIF == 1) {
+
+        real_pos = Continous_Read();
+
+
+        }
+
+          ADIF = 0;
+# 129 "interrupts.c"
 }

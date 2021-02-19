@@ -16,6 +16,8 @@
 #include <stdbool.h>        /* For true/false definition */
 #include <math.h>
 
+#include "user.h"  
+
 #endif
 
 /******************************************************************************/
@@ -23,6 +25,10 @@
 /******************************************************************************/
 
 /* High-priority service */
+
+
+unsigned int real_pos;
+unsigned int neutral_pos;
 
 #if defined(__XC) || defined(HI_TECH_C)
 void __interrupt(high_priority) high_isr(void)
@@ -34,20 +40,18 @@ void high_isr(void)
 #error "Invalid compiler selection for implemented ISR routines"
 #endif
 
-{
 
-        //GO =1; // starts ADC conversion
+{
+        if (ADIF == 1) {
+
+        neutral_pos = Neutral_Init();
         
-        //if(ADRESH!=ADRESH){
-           
-           // PORTD= 0x00;
-           
-            //INTEDG1=1;
            
         }
+         
+          ADIF = 0; 
         
-        
-    
+}
       /* This code stub shows general interrupt handling.  Note that these
       conditional statements are not handled within 3 seperate if blocks.
       Do not use a seperate if block for each interrupt flag to avoid run
@@ -91,6 +95,16 @@ void low_isr(void)
       conditional statements are not handled within 3 seperate if blocks.
       Do not use a seperate if block for each interrupt flag to avoid run
       time errors. */
+    
+    if (ADIF == 1) {
+
+        real_pos = Continous_Read();
+        
+           
+        }
+         
+          ADIF = 0;
+        
 
 #if 0
 

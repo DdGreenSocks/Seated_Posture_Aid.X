@@ -4919,6 +4919,10 @@ void ConfigureOscillator(void);
 # 1 "./user.h" 1
 # 13 "./user.h"
 void InitApp(void);
+
+unsigned int Continous_Read(void);
+
+unsigned int Neutral_Init(void);
 # 29 "main.c" 2
 
 
@@ -4931,38 +4935,7 @@ unsigned int real_pos;
 unsigned int max_pos;
 unsigned int min_pos;
 unsigned int duty_cycle;
-
-
-
-
-
-
-
-unsigned int Neutral_Init(){
-
-  PORTD=0xFF;
-
-  GO = 1;
-  return (ADRESH);
-
-
-}
-
-
-
-
-
-unsigned int Continous_Read(){
-
-
-  GO = 1;
-  return (ADRESH);
-
-}
-
-
-
-
+# 49 "main.c"
 unsigned int Vibration_ON(){
 
 
