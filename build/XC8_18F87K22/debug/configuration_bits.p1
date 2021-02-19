@@ -1,24 +1,72 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1184 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1184: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-[v F2663 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF2663 ~T0 @X0 0 e ]
-[p i __delay ]
-"7853 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7853: extern volatile __bit GO __attribute__((address(0x7E11)));
-[v _GO `Vb ~T0 @X0 0 e@32273 ]
-"5308
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5308: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
-[p mainexit ]
-"19 ./system.h
-[; ;./system.h: 19: void ConfigureOscillator(void);
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"13 ./user.h
-[; ;./user.h: 13: void InitApp(void);
-[v _InitApp `(v ~T0 @X0 0 ef ]
+"6 configuration_bits.c
+[p x FOSC  =  INTIO67    ]
+"7
+[p x FCMEN  =  OFF       ]
+"8
+[p x IESO  =  OFF        ]
+"11
+[p x PWRT  =  OFF        ]
+"12
+[p x BOREN  =  SBORDIS   ]
+"13
+[p x BORV  =  18         ]
+"16
+[p x WDTEN  =  OFF       ]
+"17
+[p x WDTPS  =  32768     ]
+"20
+[p x CCP2MX  =  PORTC    ]
+"21
+[p x PBADEN  =  ON       ]
+"22
+[p x LPT1OSC  =  OFF     ]
+"23
+[p x HFOFST  =  ON       ]
+"24
+[p x MCLRE  =  ON        ]
+"27
+[p x STVREN  =  ON       ]
+"28
+[p x LVP  =  OFF         ]
+"29
+[p x XINST  =  OFF       ]
+"32
+[p x CP0  =  OFF         ]
+"33
+[p x CP1  =  OFF         ]
+"34
+[p x CP2  =  OFF         ]
+"35
+[p x CP3  =  OFF         ]
+"38
+[p x CPB  =  OFF         ]
+"39
+[p x CPD  =  OFF         ]
+"42
+[p x WRT0  =  OFF        ]
+"43
+[p x WRT1  =  OFF        ]
+"44
+[p x WRT2  =  OFF        ]
+"45
+[p x WRT3  =  OFF        ]
+"48
+[p x WRTC  =  OFF        ]
+"49
+[p x WRTB  =  OFF        ]
+"50
+[p x WRTD  =  OFF        ]
+"53
+[p x EBTR0  =  OFF       ]
+"54
+[p x EBTR1  =  OFF       ]
+"55
+[p x EBTR2  =  OFF       ]
+"56
+[p x EBTR3  =  OFF       ]
+"59
+[p x EBTRB  =  OFF       ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -457,148 +505,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"35 main.c
-[; ;main.c: 35: unsigned int neutral_pos;
-[v _neutral_pos `ui ~T0 @X0 1 e ]
-"36
-[; ;main.c: 36: unsigned int real_pos;
-[v _real_pos `ui ~T0 @X0 1 e ]
-"37
-[; ;main.c: 37: unsigned int max_pos;
-[v _max_pos `ui ~T0 @X0 1 e ]
-"38
-[; ;main.c: 38: unsigned int min_pos;
-[v _min_pos `ui ~T0 @X0 1 e ]
-"39
-[; ;main.c: 39: unsigned int duty_cycle;
-[v _duty_cycle `ui ~T0 @X0 1 e ]
-"47
-[; ;main.c: 47: unsigned int Neutral_Init(){
-[v _Neutral_Init `(ui ~T0 @X0 1 ef ]
-{
-[e :U _Neutral_Init ]
-[f ]
-"49
-[; ;main.c: 49:   PORTD=0xFF;
-[e = _PORTD -> -> 255 `i `uc ]
-"50
-[; ;main.c: 50:   _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"51
-[; ;main.c: 51:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"52
-[; ;main.c: 52:   return (ADRESH);
-[e ) -> _ADRESH `ui ]
-[e $UE 301  ]
-"55
-[; ;main.c: 55: }
-[e :UE 301 ]
-}
-"61
-[; ;main.c: 61: unsigned int Continous_Read(){
-[v _Continous_Read `(ui ~T0 @X0 1 ef ]
-{
-[e :U _Continous_Read ]
-[f ]
-"63
-[; ;main.c: 63:   _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"64
-[; ;main.c: 64:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"65
-[; ;main.c: 65:   return (ADRESH);
-[e ) -> _ADRESH `ui ]
-[e $UE 302  ]
-"67
-[; ;main.c: 67: }
-[e :UE 302 ]
-}
-"72
-[; ;main.c: 72: unsigned int Vibration_ON(){
-[v _Vibration_ON `(ui ~T0 @X0 1 ef ]
-{
-[e :U _Vibration_ON ]
-[f ]
-"74
-[; ;main.c: 74:   _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"77
-[; ;main.c: 77: }
-[e :UE 303 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"83
-[; ;main.c: 83: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
-"84
-[; ;main.c: 84: {
-{
-[e :U _main ]
-[f ]
-"86
-[; ;main.c: 86:     ConfigureOscillator();
-[e ( _ConfigureOscillator ..  ]
-"89
-[; ;main.c: 89:     InitApp();
-[e ( _InitApp ..  ]
-"93
-[; ;main.c: 93:     neutral_pos = Neutral_Init();
-[e = _neutral_pos ( _Neutral_Init ..  ]
-"95
-[; ;main.c: 95:     _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"97
-[; ;main.c: 97:     PORTD=0x00;
-[e = _PORTD -> -> 0 `i `uc ]
-"104
-[; ;main.c: 104:     min_pos = neutral_pos - (neutral_pos*0.20);
-[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"105
-[; ;main.c: 105:     max_pos = neutral_pos + (neutral_pos*0.20);
-[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"108
-[; ;main.c: 108:     while(1)
-[e :U 306 ]
-"109
-[; ;main.c: 109:    {
-{
-"111
-[; ;main.c: 111:     real_pos = Continous_Read();
-[e = _real_pos ( _Continous_Read ..  ]
-"113
-[; ;main.c: 113:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
-[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 308  ]
-{
-"115
-[; ;main.c: 115:       PORTD=0x00;
-[e = _PORTD -> -> 0 `i `uc ]
-"116
-[; ;main.c: 116:       _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"117
-[; ;main.c: 117:      }
-}
-[e $U 309  ]
-"119
-[; ;main.c: 119:      else{
-[e :U 308 ]
-{
-"121
-[; ;main.c: 121:      PORTD=0xFF;
-[e = _PORTD -> -> 255 `i `uc ]
-"127
-[; ;main.c: 127:      }
-}
-[e :U 309 ]
-"131
-[; ;main.c: 131: }
-}
-[e :U 305 ]
-[e $U 306  ]
-[e :U 307 ]
-"134
-[; ;main.c: 134: }
-[e :UE 304 ]
-}

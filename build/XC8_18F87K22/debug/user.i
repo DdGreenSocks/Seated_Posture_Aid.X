@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "user.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 13 "main.c"
+# 1 "user.c" 2
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4812,7 +4816,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 14 "main.c" 2
+# 7 "user.c" 2
 
 
 
@@ -4906,31 +4910,16 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 23 "main.c" 2
+# 16 "user.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
-# 24 "main.c" 2
+# 17 "user.c" 2
 
 
 
-# 1 "./system.h" 1
-# 19 "./system.h"
-void ConfigureOscillator(void);
-# 28 "main.c" 2
 # 1 "./user.h" 1
 # 13 "./user.h"
 void InitApp(void);
-# 29 "main.c" 2
-
-
-
-
-
-
-unsigned int neutral_pos;
-unsigned int real_pos;
-unsigned int max_pos;
-unsigned int min_pos;
-unsigned int duty_cycle;
+# 21 "user.c" 2
 
 
 
@@ -4938,91 +4927,48 @@ unsigned int duty_cycle;
 
 
 
-unsigned int Neutral_Init(){
-
-  PORTD=0xFF;
-  _delay((unsigned long)((2)*(8000000/4000.0)));
-  GO = 1;
-  return (ADRESH);
-
-
-}
-
-
-
-
-
-unsigned int Continous_Read(){
-
-  _delay((unsigned long)((2)*(8000000/4000.0)));
-  GO = 1;
-  return (ADRESH);
-
-}
-
-
-
-
-unsigned int Vibration_ON(){
-
-  _delay((unsigned long)((2)*(8000000/4000.0)));
-
-
-}
-
-
-
-
-
-void main(void)
+void InitApp(void)
 {
+# 40 "user.c"
+    TRISD = 0x00;
 
-    ConfigureOscillator();
+    TRISA0=1;
 
+    ANS0= 1;
 
-    InitApp();
+    ADFM = 0;
 
+    ACQT2 = 1;
+    ACQT1 = 0;
+    ACQT0 = 1;
 
+    ADCS2 = 0;
+    ADCS1 = 1;
+    ADCS0 = 1;
 
-    neutral_pos = Neutral_Init();
+    VCFG1 = 0;
+    VCFG0 = 0;
 
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    CHS3=0;
+    CHS2=0;
+    CHS1=0;
+    CHS0=0;
 
-    PORTD=0x00;
+    ADON = 1;
 
+    ADIF = 0;
 
-
-
-
-
-    min_pos = neutral_pos - (neutral_pos*0.20);
-    max_pos = neutral_pos + (neutral_pos*0.20);
-
-
-    while(1)
-   {
-
-    real_pos = Continous_Read();
-
-     if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
-
-      PORTD=0x00;
-      _delay((unsigned long)((10)*(8000000/4000.0)));
-     }
-
-     else{
-
-     PORTD=0xFF;
-
+    TRISCbits.TRISC2=0;
+    PR2=0x65;
+    CCPR1L=1;
+    T2CON=0;
+    CCP1CON=0x0C;
+    TMR2=0;
+    T2CONbits.TMR2ON=1;
 
 
 
 
-     }
-
-
-
-}
 
 
 }

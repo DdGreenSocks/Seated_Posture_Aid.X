@@ -291,9 +291,9 @@ intcode 8 D CODE 8 0
 intcodelo 18 E45 CODE 18 0
 cstackCOMRAM 1 57 COMRAM 1 1
 %locals
-dist/XC8_18F87K22/production\Flex_Volt_Div_Test.X.production.o
+dist/XC8_18F87K22/debug\Flex_Volt_Div_Test.X.debug.o
 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-C:\Users\deird\AppData\Local\Temp\seucx.s
+C:\Users\deird\AppData\Local\Temp\sih0x.s
 1695 E2A 0 CODE 0
 1697 E2A 0 CODE 0
 1700 E2A 0 CODE 0
@@ -632,12 +632,12 @@ main.c
 system.c
 24 E44 0 CODE 0
 31 E44 0 CODE 0
-C:\Users\deird\AppData\Local\Temp\seucx.s
+C:\Users\deird\AppData\Local\Temp\sih0x.s
 5143 18 0 CODE 0
 interrupts.c
 80 18 0 CODE 0
 115 1E 0 CODE 0
-C:\Users\deird\AppData\Local\Temp\seucx.s
+C:\Users\deird\AppData\Local\Temp\sih0x.s
 5199 8 0 CODE 0
 interrupts.c
 28 8 0 CODE 0
