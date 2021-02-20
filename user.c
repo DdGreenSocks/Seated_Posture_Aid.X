@@ -37,7 +37,8 @@ void InitApp(void)
 
     /* Enable interrupts */
 
-    TRISD = 0x00; // Makes all 8 bits in PORTD register as outputs 
+    TRISD0 = 0; // LED output
+    TRISD7 =0;  // PWM output is on PORTC.7.
 
     TRISA0=1; // Makes bit A0 in PORTA register as input 
     
@@ -64,21 +65,21 @@ void InitApp(void)
     ADON = 1; // ADC is enabled
     
     ADIF = 0; // clear ADC interrupt flag
-    
    
+    /* Configure timer 2. */
+    T2CKPS1 = 1; // set timer 2 prescaler to 1:16.
+    TMR2ON = 1; // turn on timer 2
+    PR2 = 194; // timer 2 will count for 195 steps
     
-   // GIE = 1; // enables global interrupts
-    //PEIE= 1; // enables all unmasked peripheral interrupts
+    CCP1CONbits.CCP1M = 0x0c; // PWM mode; 
+
+    /* Output PWM to PORTD.7. */
+    P1M1 = 0;
+    P1M0 = 1;
     
-
     
-    
-
-    //ADIE = 1; //enables A/D converter interrupt
-
-
-
-
-
+    CCPR1L = 0x61; // 8 MSBs of 0111 1101 00
+    DC1B1 = 1; // bit 1 of 0110 0001 10
+    DC1B0 = 0; // bit 0 of 0110 0001 10
 
 }

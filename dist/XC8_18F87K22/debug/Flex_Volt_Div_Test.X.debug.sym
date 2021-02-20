@@ -118,7 +118,7 @@ __end_of___flsub 1034 0 CODE 0
 ADCRead_Pos@temp 6 0 COMRAM 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
-stackhi 5FF 0 ABS 0
+stackhi 5F3 0 ABS 0
 __end_of_ConfigureOscillator 10B6 0 CODE 0
 __Htemp 56 0 COMRAM 1
 __Ltemp 55 0 COMRAM 1
@@ -326,9 +326,9 @@ intcode 8 D CODE 8 0
 intcodelo 18 10B5 CODE 18 0
 cstackCOMRAM 1 55 COMRAM 1 1
 %locals
-dist/XC8_18F87K22/production\Flex_Volt_Div_Test.X.production.o
+dist/XC8_18F87K22/debug\Flex_Volt_Div_Test.X.debug.o
 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-C:\Users\deird\AppData\Local\Temp\s924x.s
+C:\Users\deird\AppData\Local\Temp\sg8gx.s
 1715 1094 0 CODE 0
 1717 1094 0 CODE 0
 1720 1094 0 CODE 0
@@ -710,13 +710,13 @@ main.c
 51 107A 0 CODE 0
 52 1080 0 CODE 0
 54 1092 0 CODE 0
-C:\Users\deird\AppData\Local\Temp\s924x.s
-5693 18 0 CODE 0
+C:\Users\deird\AppData\Local\Temp\sg8gx.s
+5703 18 0 CODE 0
 interrupts.c
 84 18 0 CODE 0
 129 1E 0 CODE 0
-C:\Users\deird\AppData\Local\Temp\s924x.s
-5749 8 0 CODE 0
+C:\Users\deird\AppData\Local\Temp\sg8gx.s
+5759 8 0 CODE 0
 interrupts.c
 34 8 0 CODE 0
 interrupts.c

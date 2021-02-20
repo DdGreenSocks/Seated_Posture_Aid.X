@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
-                                                                                               Sat Feb 20 11:08:13 2021
+                                                                                               Sat Feb 20 11:08:26 2021
 
 Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
      1                           	processor	18F45K20
@@ -92,35 +92,35 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
     78  000051                     _real_pos:
     79                           	callstack 0
     80  000051                     	ds	2
-    81  0000                     _CCP1CONbits	set	4029
-    82  0000                     _PORTDbits	set	3971
-    83  0000                     _CCPR1L	set	4030
-    84  0000                     _PR2	set	4043
-    85  0000                     _ADRESH	set	4036
-    86  0000                     _ADRESL	set	4035
-    87  0000                     _P1M0	set	32238
-    88  0000                     _P1M1	set	32239
-    89  0000                     _TMR2ON	set	32338
-    90  0000                     _T2CKPS1	set	32337
-    91  0000                     _ADIF	set	31990
-    92  0000                     _ADON	set	32272
-    93  0000                     _CHS0	set	32274
-    94  0000                     _CHS1	set	32275
-    95  0000                     _CHS2	set	32276
-    96  0000                     _CHS3	set	32277
-    97  0000                     _VCFG0	set	32268
-    98  0000                     _VCFG1	set	32269
-    99  0000                     _ADCS0	set	32256
-   100  0000                     _ADCS1	set	32257
-   101  0000                     _ADCS2	set	32258
-   102  0000                     _ACQT0	set	32259
-   103  0000                     _ACQT1	set	32260
-   104  0000                     _ACQT2	set	32261
-   105  0000                     _ADFM	set	32263
-   106  0000                     _ANS0	set	31728
-   107  0000                     _TRISA0	set	31888
-   108  0000                     _TRISD7	set	31919
-   109  0000                     _TRISD0	set	31912
+    81  0000                     _PORTDbits	set	3971
+    82  0000                     _ANS0	set	31728
+    83  0000                     _TRISA0	set	31888
+    84  0000                     _TRISD7	set	31919
+    85  0000                     _TRISD0	set	31912
+    86  0000                     _CCP1CONbits	set	4029
+    87  0000                     _CCPR1L	set	4030
+    88  0000                     _PR2	set	4043
+    89  0000                     _ADRESH	set	4036
+    90  0000                     _ADRESL	set	4035
+    91  0000                     _P1M0	set	32238
+    92  0000                     _P1M1	set	32239
+    93  0000                     _TMR2ON	set	32338
+    94  0000                     _T2CKPS1	set	32337
+    95  0000                     _ADIF	set	31990
+    96  0000                     _ADON	set	32272
+    97  0000                     _CHS0	set	32274
+    98  0000                     _CHS1	set	32275
+    99  0000                     _CHS2	set	32276
+   100  0000                     _CHS3	set	32277
+   101  0000                     _VCFG0	set	32268
+   102  0000                     _VCFG1	set	32269
+   103  0000                     _ADCS0	set	32256
+   104  0000                     _ADCS1	set	32257
+   105  0000                     _ADCS2	set	32258
+   106  0000                     _ACQT0	set	32259
+   107  0000                     _ACQT1	set	32260
+   108  0000                     _ACQT2	set	32261
+   109  0000                     _ADFM	set	32263
    110  0000                     _DC1B0	set	32236
    111  0000                     _DC1B1	set	32237
    112  0000                     _GO	set	32273
@@ -3179,7 +3179,7 @@ Auto Spaces:
     BANK2           256      0       0
     BANK3           256      0       0
     BANK4           256      0       0
-    BANK5           256      0       0
+    BANK5           244      0       0
 
 Pointer List with Targets:
 
@@ -3402,33 +3402,43 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM             5FF      0       0      17        0.0%
+BIGRAM             5F3      0       0      16        0.0%
 EEDATA             100      0       0       0        0.0%
-BITBANK5           100      0       0      16        0.0%
-BANK5              100      0       0      14        0.0%
-BITBANK4           100      0       0      12        0.0%
-BANK4              100      0       0      13        0.0%
-BITBANK3           100      0       0      10        0.0%
-BANK3              100      0       0      11        0.0%
-BITBANK2           100      0       0       8        0.0%
-BANK2              100      0       0       9        0.0%
-BITBANK1           100      0       0       6        0.0%
-BANK1              100      0       0       7        0.0%
-BITBANK0            A0      0       0       4        0.0%
-BANK0               A0      0       0       5        0.0%
+BITBANK4           100      0       0      11        0.0%
+BANK4              100      0       0      12        0.0%
+BITBANK3           100      0       0       9        0.0%
+BANK3              100      0       0      10        0.0%
+BITBANK2           100      0       0       7        0.0%
+BANK2              100      0       0       8        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+BITBANK5            F4      0       0      15        0.0%
+BANK5               F4      0       0      13        0.0%
+BITBANK0            A0      0       0       3        0.0%
+BANK0               A0      0       0       4        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
 COMRAM              5E     4A      54       1       89.4%
+BITSFR_5             0      0       0     200        0.0%
+SFR_5                0      0       0     200        0.0%
+BITSFR_4             0      0       0     200        0.0%
+SFR_4                0      0       0     200        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      54      15        0.0%
-DATA                 0      0      54       3        0.0%
+ABS                  0      0      54      14        0.0%
+DATA                 0      0      54      17        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.30 build 20200825195618 
-Symbol Table                                                                                   Sat Feb 20 11:08:13 2021
+Symbol Table                                                                                   Sat Feb 20 11:08:26 2021
 
                           l51 0D70                            l54 10AE                            l47 1092  
                           l67 10B4                            _GO 007E11                            bsr 000FE0  

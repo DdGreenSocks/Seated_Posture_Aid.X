@@ -40,32 +40,12 @@ unsigned int duty_cycle;
 /* i.e. uint8_t <variable_name>; */
 
 /******************************************************************************/
-/* Function to get Initial Flex Reading                                                             */
+/* Function to get Initial Flex Reading & Change in Flex Reading                                                           */
 /******************************************************************************/
 
-
-unsigned int Neutral_Init(){
-    
-  PORTD=0xFF; 
+unsigned int ADCRead_Pos(){ 
   
-  __delay_ms(2); //Acquisition time to charge hold capacitor
-  GO = 1; //Initializes A/D Conversion
-  int temp;
-  temp = ADRESL;
-  return temp + (ADRESH << 8);
-  
-    
-  
-}
-
-
-/******************************************************************************/
-/* Function to get Continuous Flex Reading                                                               */
-/******************************************************************************/
-
-unsigned int Continous_Read(){
-    
-  __delay_ms(2); //Acquisition time to charge hold capacitor
+ // __delay_ms(2); //Acquisition time to charge hold capacitor
   GO = 1; //Initializes A/D Conversion
   int temp;
   temp = ADRESL;
@@ -75,11 +55,36 @@ unsigned int Continous_Read(){
 
 
 /******************************************************************************/
+/* Function to set PWM Duty Cycle                                                           */
+/******************************************************************************/
+
+void PWMSetDutyCycle(unsigned int percentage) {
+
+    long output;
+
+    if (percentage > 100) {
+        return;
+    }
+
+    output = ((long) (PR2 + 1)) << 2;
+    output=  output * ((long) percentage);
+    output = output / 100;
+
+    CCPR1L = output >> 2; // 10-bit value 8 MSBs
+    DC1B1 = (output & 2) >> 1; // 10-bit value bit 1
+    DC1B0 = (output & 1); // 10-bit value bit 0
+
+
+}
+/******************************************************************************/
 /* Function to operate Vibration Motor                                                              */
 /******************************************************************************/
-unsigned int Vibration_ON(){
-    
-  __delay_ms(2); 
+
+void Vibration_ON(unsigned int real_pos){
+  
+   PWMSetDutyCycle(real_pos); 
+  
+   // __delay_ms(2); 
   
  
 }
@@ -98,15 +103,15 @@ void main(void)
 
     /* TODO <INSERT USER APPLICATION CODE HERE> */
  
-    neutral_pos = Neutral_Init();//Initializes Flex sensor & initial records value
+    neutral_pos = ADCRead_Pos();
     
-   
-    
-    PORTD=0x00; 
-     __delay_ms(2);
-    PORTD=0xFF;
-     __delay_ms(2);
-     PORTD=0x00; 
+    PORTDbits.RD0=0xFF;
+    // __delay_ms(2);
+    PORTDbits.RD0=0x00; 
+    // __delay_ms(2);
+    PORTDbits.RD0=0xFF;
+    // __delay_ms(2);
+    PORTDbits.RD0=0x00; 
     //LED Blinks once to show it has initialized
     
     
@@ -117,21 +122,20 @@ void main(void)
     while(1)
    {
      
-    real_pos = Continous_Read(); //Continuously reads Flex sensor value
+    real_pos = ADCRead_Pos(); //Continuously reads Flex sensor value
         
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
             
-      PORTD=0x00; //Lights turn OFF if Sensor is within 30% of initial value 
+      PORTDbits.RD0=0x00; //Lights turn OFF if Sensor is within 30% of initial value 
       //__delay_ms(10);
      }
      
      else{
            
-     PORTD=0xFF; //Lights turn ON if Sensor is NOT within 30% of initial value 
+         Vibration_ON(real_pos);
+         
+         PORTDbits.RD0=1; //Lights turn ON if Sensor is NOT within 30% of initial value 
         
-     //CCPR1L = 50;   /* load duty cycle */
-     //PORTC=0XFF;
-     //__delay_ms(10);
       
      }
         
