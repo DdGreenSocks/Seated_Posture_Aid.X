@@ -27,6 +27,8 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul64.c
@@ -37,19 +39,19 @@
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 "84
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"46 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+"48 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
 [v _ADCRead_Pos ADCRead_Pos `(ui  1 e 2 0 ]
-"61
+"63
 [v _PWMSetDutyCycle PWMSetDutyCycle `(v  1 e 1 0 ]
-"83
+"85
 [v _Vibration_ON Vibration_ON `(v  1 e 1 0 ]
-"96
+"97
 [v _main main `(v  1 e 1 0 ]
 "24 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "28 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-[s S51 . 1 `uc 1 RD0 1 0 :1:0 
+[s S57 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -59,7 +61,7 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "1221 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[s S60 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S66 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -68,22 +70,22 @@
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S69 . 1 `uc 1 . 1 0 :5:0 
+[s S75 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 P1B 1 0 :1:5 
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S74 . 1 `uc 1 . 1 0 :7:0 
+[s S80 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S77 . 1 `S51 1 . 1 0 `S60 1 . 1 0 `S69 1 . 1 0 `S74 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES77  1 e 1 @3971 ]
-[s S160 . 1 `uc 1 CCP1M 1 0 :4:0 
+[u S83 . 1 `S57 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 `S80 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES83  1 e 1 @3971 ]
+[s S167 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "4972
-[s S164 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S171 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -92,8 +94,8 @@
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[u S173 . 1 `S160 1 . 1 0 `S164 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES173  1 e 1 @4029 ]
+[u S180 . 1 `S167 1 . 1 0 `S171 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES180  1 e 1 @4029 ]
 "5039
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "5301
@@ -162,10 +164,12 @@
 [v _max_pos max_pos `ui  1 e 2 0 ]
 "38
 [v _min_pos min_pos `ui  1 e 2 0 ]
-"96
+"97
 [v _main main `(v  1 e 1 0 ]
 {
-"147
+"142
+[v main@percentage percentage `ui  1 a 2 75 ]
+"155
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -181,6 +185,16 @@
 "15
 [v ___xxtofl@sign sign `uc  1 a 1 9 ]
 "44
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 5 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 1 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 3 ]
+"53
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
@@ -218,17 +232,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S501 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S508 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S506 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S509 . 4 `l 1 i 4 0 `d 1 f 4 0 `S501 1 fAsBytes 4 0 `S506 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S509  1 a 4 34 ]
+[s S513 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S516 . 4 `l 1 i 4 0 `d 1 f 4 0 `S508 1 fAsBytes 4 0 `S513 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S516  1 a 4 34 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S577 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S584 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S580 . 2 `s 1 i 2 0 `us 1 n 2 0 `S577 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S580  1 a 2 38 ]
+[u S587 . 2 `s 1 i 2 0 `us 1 n 2 0 `S584 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S587  1 a 2 38 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 33 ]
 "11
@@ -240,20 +254,20 @@
 [v ___flmul@a a `d  1 p 4 19 ]
 "205
 } 0
-"83 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+"85 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
 [v _Vibration_ON Vibration_ON `(v  1 e 1 0 ]
 {
-[v Vibration_ON@real_pos real_pos `ui  1 p 2 26 ]
-"90
+[v Vibration_ON@percentage percentage `ui  1 p 2 26 ]
+"91
 } 0
-"61
+"63
 [v _PWMSetDutyCycle PWMSetDutyCycle `(v  1 e 1 0 ]
 {
-"63
+"65
 [v PWMSetDutyCycle@output output `l  1 a 4 22 ]
-"61
+"63
 [v PWMSetDutyCycle@percentage percentage `ui  1 p 2 15 ]
-"78
+"80
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -288,12 +302,12 @@
 {
 "31
 } 0
-"46 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
+"48 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\main.c
 [v _ADCRead_Pos ADCRead_Pos `(ui  1 e 2 0 ]
 {
-"50
+"52
 [v ADCRead_Pos@temp temp `i  1 a 2 5 ]
-"54
+"56
 } 0
 "84 C:\Users\deird\OneDrive\College\Sligo_Y2\Project_Build_2020\MPLABProjects\Flex_Volt_Div_Test.X\interrupts.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]

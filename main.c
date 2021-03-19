@@ -37,6 +37,8 @@ unsigned int real_pos;
 unsigned int max_pos;
 unsigned int min_pos;
 unsigned int duty_cycle; 
+//unsigned int percentage;
+
 /* i.e. uint8_t <variable_name>; */
 
 /******************************************************************************/
@@ -45,7 +47,7 @@ unsigned int duty_cycle;
 
 unsigned int ADCRead_Pos(){ 
   
- // __delay_ms(2); //Acquisition time to charge hold capacitor
+ __delay_ms(2); //Acquisition time to charge hold capacitor
   GO = 1; //Initializes A/D Conversion
   int temp;
   temp = ADRESL;
@@ -80,13 +82,12 @@ void PWMSetDutyCycle(unsigned int percentage) {
 /* Function to operate Vibration Motor                                                              */
 /******************************************************************************/
 
-void Vibration_ON(unsigned int real_pos){
+void Vibration_ON(unsigned int percentage){
+    
+    
+        
+   PWMSetDutyCycle(percentage);
   
-   PWMSetDutyCycle(real_pos); 
-  
-   // __delay_ms(2); 
-  
- 
 }
 
 /******************************************************************************/
@@ -100,17 +101,20 @@ void main(void)
 
     /* Initialize I/O and Peripherals for application */
     InitApp(); // calls user.c code
-
-    /* TODO <INSERT USER APPLICATION CODE HERE> */
+    
+    neutral_pos = 0x00;
+    real_pos =0x00;
+    PORTDbits.RD7=0;
+  
  
     neutral_pos = ADCRead_Pos();
     
     PORTDbits.RD0=0xFF;
-    // __delay_ms(2);
+    __delay_ms(2);
     PORTDbits.RD0=0x00; 
-    // __delay_ms(2);
+   __delay_ms(2);
     PORTDbits.RD0=0xFF;
-    // __delay_ms(2);
+    __delay_ms(2);
     PORTDbits.RD0=0x00; 
     //LED Blinks once to show it has initialized
     
@@ -126,13 +130,17 @@ void main(void)
         
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
             
-      PORTDbits.RD0=0x00; //Lights turn OFF if Sensor is within 30% of initial value 
-      //__delay_ms(10);
+      PORTDbits.RD0=0; //Lights turn OFF if Sensor is within 30% of initial value 
+     __delay_ms(10);
+      PORTDbits.RD7=0;
+      Vibration_ON(0);
+      
      }
      
      else{
-           
-         Vibration_ON(real_pos);
+         
+         unsigned int percentage = ((real_pos*100)/256);
+         Vibration_ON(percentage);
          
          PORTDbits.RD0=1; //Lights turn ON if Sensor is NOT within 30% of initial value 
         

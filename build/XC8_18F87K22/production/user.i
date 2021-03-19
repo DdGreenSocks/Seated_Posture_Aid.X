@@ -4931,7 +4931,7 @@ void InitApp(void)
 {
 # 40 "user.c"
     TRISD0 = 0;
-    TRISD7 =0;
+    TRISD7 = 0;
 
     TRISA0=1;
 

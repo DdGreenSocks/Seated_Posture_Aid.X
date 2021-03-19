@@ -4931,6 +4931,7 @@ unsigned int real_pos;
 unsigned int max_pos;
 unsigned int min_pos;
 unsigned int duty_cycle;
+unsigned int percentage;
 
 
 
@@ -4952,7 +4953,7 @@ unsigned int ADCRead_Pos(){
 
 
 
-void PWMSetDutyCycle(unsigned int percentage) {
+void PWMSetDutyCycle() {
 
     long output;
 
@@ -4974,9 +4975,13 @@ void PWMSetDutyCycle(unsigned int percentage) {
 
 
 
-void Vibration_ON(unsigned int real_pos){
+void Vibration_ON(){
+    percentage = ((real_pos*100)/256);
 
-   PWMSetDutyCycle(real_pos);
+
+   PWMSetDutyCycle(percentage);
+
+
 
 
 
@@ -4995,6 +5000,9 @@ void main(void)
 
     InitApp();
 
+    neutral_pos = 0x00;
+    real_pos =0x00;
+    PORTDbits.RD7=0;
 
 
     neutral_pos = ADCRead_Pos();
@@ -5020,13 +5028,15 @@ void main(void)
 
      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
 
-      PORTDbits.RD0=0x00;
+      PORTDbits.RD0=0;
 
+      PORTDbits.RD7=0;
      }
 
      else{
 
-         Vibration_ON(real_pos);
+
+         Vibration_ON();
 
          PORTDbits.RD0=1;
 

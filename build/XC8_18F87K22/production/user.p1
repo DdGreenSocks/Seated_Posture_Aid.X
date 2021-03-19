@@ -545,7 +545,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;user.c: 40:     TRISD0 = 0;
 [e = _TRISD0 -> -> 0 `i `b ]
 "41
-[; ;user.c: 41:     TRISD7 =0;
+[; ;user.c: 41:     TRISD7 = 0;
 [e = _TRISD7 -> -> 0 `i `b ]
 "43
 [; ;user.c: 43:     TRISA0=1;

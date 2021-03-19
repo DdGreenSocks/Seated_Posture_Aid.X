@@ -503,163 +503,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;main.c: 39: unsigned int duty_cycle;
 [v _duty_cycle `ui ~T0 @X0 1 e ]
-"46
-[; ;main.c: 46: unsigned int ADCRead_Pos(){
+"40
+[; ;main.c: 40: unsigned int percentage;
+[v _percentage `ui ~T0 @X0 1 e ]
+"47
+[; ;main.c: 47: unsigned int ADCRead_Pos(){
 [v _ADCRead_Pos `(ui ~T0 @X0 1 ef ]
 {
 [e :U _ADCRead_Pos ]
 [f ]
-"49
-[; ;main.c: 49:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
 "50
-[; ;main.c: 50:   int temp;
-[v _temp `i ~T0 @X0 1 a ]
+[; ;main.c: 50:   GO = 1;
+[e = _GO -> -> 1 `i `b ]
 "51
-[; ;main.c: 51:   temp = ADRESL;
-[e = _temp -> _ADRESL `i ]
+[; ;main.c: 51:   int temp;
+[v _temp `i ~T0 @X0 1 a ]
 "52
-[; ;main.c: 52:   return temp + (ADRESH << 8);
+[; ;main.c: 52:   temp = ADRESL;
+[e = _temp -> _ADRESL `i ]
+"53
+[; ;main.c: 53:   return temp + (ADRESH << 8);
 [e ) -> + _temp << -> _ADRESH `i -> 8 `i `ui ]
 [e $UE 301  ]
-"54
-[; ;main.c: 54: }
+"55
+[; ;main.c: 55: }
 [e :UE 301 ]
 }
-"61
-[; ;main.c: 61: void PWMSetDutyCycle(unsigned int percentage) {
-[v _PWMSetDutyCycle `(v ~T0 @X0 1 ef1`ui ]
+"62
+[; ;main.c: 62: void PWMSetDutyCycle() {
+[v _PWMSetDutyCycle `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWMSetDutyCycle ]
-[v _percentage `ui ~T0 @X0 1 r1 ]
 [f ]
-"63
-[; ;main.c: 63:     long output;
+"64
+[; ;main.c: 64:     long output;
 [v _output `l ~T0 @X0 1 a ]
-"65
-[; ;main.c: 65:     if (percentage > 100) {
+"66
+[; ;main.c: 66:     if (percentage > 100) {
 [e $ ! > _percentage -> -> 100 `i `ui 303  ]
 {
-"66
-[; ;main.c: 66:         return;
-[e $UE 302  ]
 "67
-[; ;main.c: 67:     }
+[; ;main.c: 67:         return;
+[e $UE 302  ]
+"68
+[; ;main.c: 68:     }
 }
 [e :U 303 ]
-"69
-[; ;main.c: 69:     output = ((long) (PR2 + 1)) << 2;
-[e = _output << -> + -> _PR2 `i -> 1 `i `l -> 2 `i ]
 "70
-[; ;main.c: 70:     output= output * ((long) percentage);
-[e = _output * _output -> _percentage `l ]
+[; ;main.c: 70:     output = ((long) (PR2 + 1)) << 2;
+[e = _output << -> + -> _PR2 `i -> 1 `i `l -> 2 `i ]
 "71
-[; ;main.c: 71:     output = output / 100;
+[; ;main.c: 71:     output= output * ((long) percentage);
+[e = _output * _output -> _percentage `l ]
+"72
+[; ;main.c: 72:     output = output / 100;
 [e = _output / _output -> -> 100 `i `l ]
-"73
-[; ;main.c: 73:     CCPR1L = output >> 2;
-[e = _CCPR1L -> >> _output -> 2 `i `uc ]
 "74
-[; ;main.c: 74:     DC1B1 = (output & 2) >> 1;
-[e = _DC1B1 -> >> & _output -> -> 2 `i `l -> 1 `i `b ]
+[; ;main.c: 74:     CCPR1L = output >> 2;
+[e = _CCPR1L -> >> _output -> 2 `i `uc ]
 "75
-[; ;main.c: 75:     DC1B0 = (output & 1);
+[; ;main.c: 75:     DC1B1 = (output & 2) >> 1;
+[e = _DC1B1 -> >> & _output -> -> 2 `i `l -> 1 `i `b ]
+"76
+[; ;main.c: 76:     DC1B0 = (output & 1);
 [e = _DC1B0 -> & _output -> -> 1 `i `l `b ]
-"78
-[; ;main.c: 78: }
+"79
+[; ;main.c: 79: }
 [e :UE 302 ]
 }
-"83
-[; ;main.c: 83: void Vibration_ON(unsigned int real_pos){
-[v _Vibration_ON `(v ~T0 @X0 1 ef1`ui ]
+"84
+[; ;main.c: 84: void Vibration_ON(){
+[v _Vibration_ON `(v ~T0 @X0 1 ef ]
 {
 [e :U _Vibration_ON ]
-[v _real_pos `ui ~T0 @X0 1 r1 ]
 [f ]
 "85
-[; ;main.c: 85:    PWMSetDutyCycle(real_pos);
-[e ( _PWMSetDutyCycle (1 _real_pos ]
-"90
-[; ;main.c: 90: }
+[; ;main.c: 85:     percentage = ((real_pos*100)/256);
+[e = _percentage / * _real_pos -> -> 100 `i `ui -> -> 256 `i `ui ]
+"88
+[; ;main.c: 88:    PWMSetDutyCycle(percentage);
+[e ( _PWMSetDutyCycle _percentage ]
+"95
+[; ;main.c: 95: }
 [e :UE 304 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"96
-[; ;main.c: 96: void main(void)
+"101
+[; ;main.c: 101: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"97
-[; ;main.c: 97: {
+"102
+[; ;main.c: 102: {
 {
 [e :U _main ]
 [f ]
-"99
-[; ;main.c: 99:     ConfigureOscillator();
+"104
+[; ;main.c: 104:     ConfigureOscillator();
 [e ( _ConfigureOscillator ..  ]
-"102
-[; ;main.c: 102:     InitApp();
+"107
+[; ;main.c: 107:     InitApp();
 [e ( _InitApp ..  ]
-"106
-[; ;main.c: 106:     neutral_pos = ADCRead_Pos();
-[e = _neutral_pos ( _ADCRead_Pos ..  ]
-"108
-[; ;main.c: 108:     PORTDbits.RD0=0xFF;
-[e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
+"109
+[; ;main.c: 109:     neutral_pos = 0x00;
+[e = _neutral_pos -> -> 0 `i `ui ]
 "110
-[; ;main.c: 110:     PORTDbits.RD0=0x00;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"112
-[; ;main.c: 112:     PORTDbits.RD0=0xFF;
-[e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
+[; ;main.c: 110:     real_pos =0x00;
+[e = _real_pos -> -> 0 `i `ui ]
+"111
+[; ;main.c: 111:     PORTDbits.RD7=0;
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
 "114
-[; ;main.c: 114:     PORTDbits.RD0=0x00;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 114:     neutral_pos = ADCRead_Pos();
+[e = _neutral_pos ( _ADCRead_Pos ..  ]
+"116
+[; ;main.c: 116:     PORTDbits.RD0=0xFF;
+[e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
 "118
-[; ;main.c: 118:     min_pos = neutral_pos - (neutral_pos*0.20);
-[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"119
-[; ;main.c: 119:     max_pos = neutral_pos + (neutral_pos*0.20);
-[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
+[; ;main.c: 118:     PORTDbits.RD0=0x00;
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"120
+[; ;main.c: 120:     PORTDbits.RD0=0xFF;
+[e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
 "122
-[; ;main.c: 122:     while(1)
-[e :U 307 ]
-"123
-[; ;main.c: 123:    {
-{
-"125
-[; ;main.c: 125:     real_pos = ADCRead_Pos();
-[e = _real_pos ( _ADCRead_Pos ..  ]
+[; ;main.c: 122:     PORTDbits.RD0=0x00;
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"126
+[; ;main.c: 126:     min_pos = neutral_pos - (neutral_pos*0.20);
+[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
 "127
-[; ;main.c: 127:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+[; ;main.c: 127:     max_pos = neutral_pos + (neutral_pos*0.20);
+[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
+"130
+[; ;main.c: 130:     while(1)
+[e :U 307 ]
+"131
+[; ;main.c: 131:    {
+{
+"133
+[; ;main.c: 133:     real_pos = ADCRead_Pos();
+[e = _real_pos ( _ADCRead_Pos ..  ]
+"135
+[; ;main.c: 135:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
 [e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 309  ]
 {
-"129
-[; ;main.c: 129:       PORTDbits.RD0=0x00;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"131
-[; ;main.c: 131:      }
-}
-[e $U 310  ]
-"133
-[; ;main.c: 133:      else{
-[e :U 309 ]
-{
-"135
-[; ;main.c: 135:          Vibration_ON(real_pos);
-[e ( _Vibration_ON (1 _real_pos ]
 "137
-[; ;main.c: 137:          PORTDbits.RD0=1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 137:       PORTDbits.RD0=0;
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"139
+[; ;main.c: 139:       PORTDbits.RD7=0;
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
 "140
 [; ;main.c: 140:      }
 }
+[e $U 310  ]
+"142
+[; ;main.c: 142:      else{
+[e :U 309 ]
+{
+"145
+[; ;main.c: 145:          Vibration_ON();
+[e ( _Vibration_ON ..  ]
+"147
+[; ;main.c: 147:          PORTDbits.RD0=1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"150
+[; ;main.c: 150:      }
+}
 [e :U 310 ]
-"144
-[; ;main.c: 144: }
+"154
+[; ;main.c: 154: }
 }
 [e :U 306 ]
 [e $U 307  ]
 [e :U 308 ]
-"147
-[; ;main.c: 147: }
+"157
+[; ;main.c: 157: }
 [e :UE 305 ]
 }

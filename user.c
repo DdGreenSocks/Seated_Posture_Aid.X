@@ -38,7 +38,7 @@ void InitApp(void)
     /* Enable interrupts */
 
     TRISD0 = 0; // LED output
-    TRISD7 =0;  // PWM output is on PORTC.7.
+    TRISD7 = 0;  // PWM output is on PORTD.7.
 
     TRISA0=1; // Makes bit A0 in PORTA register as input 
     
