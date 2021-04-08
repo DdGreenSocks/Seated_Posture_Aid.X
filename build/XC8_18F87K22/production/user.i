@@ -4929,50 +4929,39 @@ void InitApp(void);
 
 void InitApp(void)
 {
-# 40 "user.c"
-    TRISD0 = 0;
-    TRISD7 = 0;
-
-    TRISA0=1;
-
-    ANS0= 1;
-
-    ADFM = 0;
-
-    ACQT2 = 1;
-    ACQT1 = 0;
-    ACQT0 = 1;
-
-    ADCS2 = 0;
-    ADCS1 = 1;
-    ADCS0 = 1;
-
-    VCFG1 = 0;
-    VCFG0 = 0;
-
-    CHS3=0;
-    CHS2=0;
-    CHS1=0;
-    CHS0=0;
-
-    ADON = 1;
-
-    ADIF = 0;
 
 
-    T2CKPS1 = 1;
-    TMR2ON = 1;
+
+
+    TRISDbits.RD0 = 0;
+    TRISDbits.RD1 = 0;
+    TRISDbits.RD7 = 0;
+    TRISAbits.RA0 = 1;
+    TRISBbits.RB0 = 1;
+
+
+
+
+
+    T2CONbits.T2CKPS1 = 1;
+    T2CONbits.TMR2ON = 1;
     PR2 = 194;
 
     CCP1CONbits.CCP1M = 0x0c;
 
-
-    P1M1 = 0;
-    P1M0 = 1;
-
+    CCP1CONbits.P1M1 = 0;
+    CCP1CONbits.P1M0 = 1;
 
     CCPR1L = 0x61;
-    DC1B1 = 1;
-    DC1B0 = 0;
+    CCP1CONbits.DC1B1 = 1;
+    CCP1CONbits.DC1B0 = 0;
 
+
+
+    ANSELHbits.ANS12 = 0;
+    RCONbits.IPEN = 1;
+    INTCONbits.GIE = 1;
+    INTCONbits.INT0IE=1;
+    INTCONbits.INT0IF=0;
+    INTCON2bits.INTEDG0 = 1;
 }

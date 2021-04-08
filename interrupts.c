@@ -17,7 +17,8 @@
 #include <math.h>
 
 #include "user.h"  
-
+#include "ADC_Read.h"
+#define _XTAL_FREQ 8000000
 #endif
 
 /******************************************************************************/
@@ -42,15 +43,18 @@ void high_isr(void)
 
 
 {
-       // if (ADIF == 1) {
-
-        //neutral_pos = Neutral_Init();
+    
+    
+    if(INTCONbits.INT0IF==1){
         
-           
-       // }
-         
-        //  ADIF = 0; 
+        PORTDbits.RD1=1;
+        __delay_ms(20);
+        neutral_pos = ADCRead_Pos();
+        PORTDbits.RD1=0;
+        INTCONbits.INT0IF=0;
         
+        //return neutral_pos;
+    }
 }
       /* This code stub shows general interrupt handling.  Note that these
       conditional statements are not handled within 3 seperate if blocks.

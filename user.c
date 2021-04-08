@@ -27,59 +27,40 @@
 
 void InitApp(void)
 {
-    /* TODO Initialize User Ports/Peripherals/Project here */
+    
 
-    /* Setup analog functionality and port direction */
+/* Initialize I/O */                                                            
 
-    /* Initialize peripherals */
-
-    /* Configure the IPEN bit (1=on) in RCON to turn on/off int priorities */
-
-    /* Enable interrupts */
-
-    TRISD0 = 0; // LED output
-    TRISD7 = 0;  // PWM output is on PORTD.7.
-
-    TRISA0=1; // Makes bit A0 in PORTA register as input 
+    TRISDbits.RD0 = 0;     // LED output on D0
+    TRISDbits.RD1 = 0;     // LED output on RD1 
+    TRISDbits.RD7 = 0;     // PWM output on D7
+    TRISAbits.RA0 = 1;     // ADC input on  A0
+    TRISBbits.RB0 = 1;     // Set RB0 button as input
     
-    ANS0= 1; // disabling digital buffer to make analog input
-    
-    ADFM = 0; // Left justified, result format
-    
-    ACQT2 = 1; // sets acquisition time to 12Tad
-    ACQT1 = 0;
-    ACQT0 = 1;
-    
-    ADCS2 = 0; // sets conversion clock to Frc 
-    ADCS1 = 1;
-    ADCS0 = 1;
-    
-    VCFG1 = 0; // Negative voltage reference supplied internally by Vss
-    VCFG0 = 0; // Positive voltage reference supplied internally by Vdd
-    
-    CHS3=0; // Analog channel select bits
-    CHS2=0;
-    CHS1=0;
-    CHS0=0;
-    
-    ADON = 1; // ADC is enabled
-    
-    ADIF = 0; // clear ADC interrupt flag
+ 
    
-    /* Configure timer 2. */
-    T2CKPS1 = 1; // set timer 2 prescaler to 1:16.
-    TMR2ON = 1; // turn on timer 2
-    PR2 = 194; // timer 2 will count for 195 steps
+    /* Initialize PWM */
+    
+    T2CONbits.T2CKPS1 = 1;    // set timer 2 prescaler to 1:16.
+    T2CONbits.TMR2ON = 1;     // turn on timer 2
+    PR2 = 194;                // timer 2 will count for 195 steps
     
     CCP1CONbits.CCP1M = 0x0c; // PWM mode; 
 
-    /* Output PWM to PORTD.7. */
-    P1M1 = 0;
-    P1M0 = 1;
+    CCP1CONbits.P1M1 = 0;           // PWM output on D7
+    CCP1CONbits.P1M0 = 1;           // PWM output on D7
     
-    
-    CCPR1L = 0x61; // 8 MSBs of 0111 1101 00
-    DC1B1 = 1; // bit 1 of 0110 0001 10
-    DC1B0 = 0; // bit 0 of 0110 0001 10
+    CCPR1L = 0x61;      // 8 MSBs of 0111 1101 00
+    CCP1CONbits.DC1B1 = 1;          // bit 1 of 0110 0001 10
+    CCP1CONbits.DC1B0 = 0;          // bit 0 of 0110 0001 10
 
+     /* Initialize Button Interrupt */
+    
+    ANSELHbits.ANS12 = 0;       // Set RB0 as digital input
+    RCONbits.IPEN = 1;
+    INTCONbits.GIE = 1;         // Enables Global interrupts
+    INTCONbits.INT0IE=1;
+    INTCONbits.INT0IF=0;  // Clear External Interrupt Flag
+    INTCON2bits.INTEDG0 = 1;    // Interrupt on falling edge
 }
+

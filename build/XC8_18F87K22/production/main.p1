@@ -1,18 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F2663 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF2663 ~T0 @X0 0 e ]
-[p i __delay ]
-"7853 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7853: extern volatile __bit GO __attribute__((address(0x7E11)));
-[v _GO `Vb ~T0 @X0 0 e@32273 ]
-"5301
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5301: extern volatile unsigned char ADRESL __attribute__((address(0xFC3)));
-[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
-"5308
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5308: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
-"5757
+"5757 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5757: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
 [v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
 "5039
@@ -31,6 +18,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./user.h
 [; ;./user.h: 13: void InitApp(void);
 [v _InitApp `(v ~T0 @X0 0 ef ]
+"4 ./ADC_Read.h
+[; ;./ADC_Read.h: 4: void Init_ADC(void);
+[v _Init_ADC `(v ~T0 @X0 0 ef ]
 "1190 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1190:     struct {
 [s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -54,6 +44,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1221
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1221: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS51 ~T0 @X0 0 e@3971 ]
+"6 ./ADC_Read.h
+[; ;./ADC_Read.h: 6: unsigned int ADCRead_Pos();
+[v _ADCRead_Pos `(ui ~T0 @X0 0 e? ]
+[v F2663 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
+[v __delay `JF2663 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -492,212 +489,191 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"35 main.c
-[; ;main.c: 35: unsigned int neutral_pos;
+"1 ./ADC_Read.h
+[; ;./ADC_Read.h: 1: unsigned int neutral_pos;
 [v _neutral_pos `ui ~T0 @X0 1 e ]
-"36
-[; ;main.c: 36: unsigned int real_pos;
+"2
+[; ;./ADC_Read.h: 2: unsigned int real_pos;
 [v _real_pos `ui ~T0 @X0 1 e ]
-"37
-[; ;main.c: 37: unsigned int max_pos;
+"35 main.c
+[; ;main.c: 35: unsigned int max_pos;
 [v _max_pos `ui ~T0 @X0 1 e ]
-"38
-[; ;main.c: 38: unsigned int min_pos;
+"36
+[; ;main.c: 36: unsigned int min_pos;
 [v _min_pos `ui ~T0 @X0 1 e ]
-"39
-[; ;main.c: 39: unsigned int duty_cycle;
+"37
+[; ;main.c: 37: unsigned int duty_cycle;
 [v _duty_cycle `ui ~T0 @X0 1 e ]
-"48
-[; ;main.c: 48: unsigned int ADCRead_Pos(){
-[v _ADCRead_Pos `(ui ~T0 @X0 1 ef ]
-{
-[e :U _ADCRead_Pos ]
-[f ]
-"50
-[; ;main.c: 50:  _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"51
-[; ;main.c: 51:   GO = 1;
-[e = _GO -> -> 1 `i `b ]
-"52
-[; ;main.c: 52:   int temp;
-[v _temp `i ~T0 @X0 1 a ]
-"53
-[; ;main.c: 53:   temp = ADRESL;
-[e = _temp -> _ADRESL `i ]
-"54
-[; ;main.c: 54:   return temp + (ADRESH << 8);
-[e ) -> + _temp << -> _ADRESH `i -> 8 `i `ui ]
-[e $UE 301  ]
-"56
-[; ;main.c: 56: }
-[e :UE 301 ]
-}
-"63
-[; ;main.c: 63: void PWMSetDutyCycle(unsigned int percentage) {
+"38
+[; ;main.c: 38: unsigned int temp;
+[v _temp `ui ~T0 @X0 1 e ]
+"44
+[; ;main.c: 44: void PWMSetDutyCycle(unsigned int percentage) {
 [v _PWMSetDutyCycle `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _PWMSetDutyCycle ]
 [v _percentage `ui ~T0 @X0 1 r1 ]
 [f ]
-"65
-[; ;main.c: 65:     long output;
+"46
+[; ;main.c: 46:     long output;
 [v _output `l ~T0 @X0 1 a ]
-"67
-[; ;main.c: 67:     if (percentage > 100) {
-[e $ ! > _percentage -> -> 100 `i `ui 303  ]
+"48
+[; ;main.c: 48:     if (percentage > 100) {
+[e $ ! > _percentage -> -> 100 `i `ui 302  ]
 {
-"68
-[; ;main.c: 68:         return;
-[e $UE 302  ]
-"69
-[; ;main.c: 69:     }
+"49
+[; ;main.c: 49:         return;
+[e $UE 301  ]
+"50
+[; ;main.c: 50:     }
 }
-[e :U 303 ]
-"71
-[; ;main.c: 71:     output = ((long) (PR2 + 1)) << 2;
+[e :U 302 ]
+"52
+[; ;main.c: 52:     output = ((long) (PR2 + 1)) << 2;
 [e = _output << -> + -> _PR2 `i -> 1 `i `l -> 2 `i ]
-"72
-[; ;main.c: 72:     output= output * ((long) percentage);
+"53
+[; ;main.c: 53:     output= output * ((long) percentage);
 [e = _output * _output -> _percentage `l ]
-"73
-[; ;main.c: 73:     output = output / 100;
+"54
+[; ;main.c: 54:     output = output / 100;
 [e = _output / _output -> -> 100 `i `l ]
-"75
-[; ;main.c: 75:     CCPR1L = output >> 2;
+"56
+[; ;main.c: 56:     CCPR1L = output >> 2;
 [e = _CCPR1L -> >> _output -> 2 `i `uc ]
-"76
-[; ;main.c: 76:     DC1B1 = (output & 2) >> 1;
+"57
+[; ;main.c: 57:     DC1B1 = (output & 2) >> 1;
 [e = _DC1B1 -> >> & _output -> -> 2 `i `l -> 1 `i `b ]
-"77
-[; ;main.c: 77:     DC1B0 = (output & 1);
+"58
+[; ;main.c: 58:     DC1B0 = (output & 1);
 [e = _DC1B0 -> & _output -> -> 1 `i `l `b ]
-"80
-[; ;main.c: 80: }
-[e :UE 302 ]
+"60
+[; ;main.c: 60: }
+[e :UE 301 ]
 }
-"85
-[; ;main.c: 85: void Vibration_ON(unsigned int percentage){
+"66
+[; ;main.c: 66: void Vibration_ON(unsigned int percentage){
 [v _Vibration_ON `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _Vibration_ON ]
 [v _percentage `ui ~T0 @X0 1 r1 ]
 [f ]
-"89
-[; ;main.c: 89:    PWMSetDutyCycle(percentage);
+"70
+[; ;main.c: 70:    PWMSetDutyCycle(percentage);
 [e ( _PWMSetDutyCycle (1 _percentage ]
-"91
-[; ;main.c: 91: }
-[e :UE 304 ]
+"72
+[; ;main.c: 72: }
+[e :UE 303 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"97
-[; ;main.c: 97: void main(void)
+"78
+[; ;main.c: 78: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"98
-[; ;main.c: 98: {
+"79
+[; ;main.c: 79: {
 {
 [e :U _main ]
 [f ]
-"100
-[; ;main.c: 100:     ConfigureOscillator();
+"81
+[; ;main.c: 81:     ConfigureOscillator();
 [e ( _ConfigureOscillator ..  ]
-"103
-[; ;main.c: 103:     InitApp();
+"84
+[; ;main.c: 84:     InitApp();
 [e ( _InitApp ..  ]
-"105
-[; ;main.c: 105:     neutral_pos = 0x00;
+"85
+[; ;main.c: 85:     Init_ADC();
+[e ( _Init_ADC ..  ]
+"88
+[; ;main.c: 88:     neutral_pos = 0x00;
 [e = _neutral_pos -> -> 0 `i `ui ]
-"106
-[; ;main.c: 106:     real_pos =0x00;
+"89
+[; ;main.c: 89:     real_pos =0x00;
 [e = _real_pos -> -> 0 `i `ui ]
-"107
-[; ;main.c: 107:     PORTDbits.RD7=0;
+"90
+[; ;main.c: 90:     PORTDbits.RD7=0;
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-"110
-[; ;main.c: 110:     neutral_pos = ADCRead_Pos();
+"91
+[; ;main.c: 91:     Vibration_ON(0);
+[e ( _Vibration_ON (1 -> -> 0 `i `ui ]
+"95
+[; ;main.c: 95:     neutral_pos = ADCRead_Pos();
 [e = _neutral_pos ( _ADCRead_Pos ..  ]
-"112
-[; ;main.c: 112:     PORTDbits.RD0=0xFF;
+"97
+[; ;main.c: 97:     PORTDbits.RD0=0xFF;
 [e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
-"113
-[; ;main.c: 113:     _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"114
-[; ;main.c: 114:     PORTDbits.RD0=0x00;
+"98
+[; ;main.c: 98:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"99
+[; ;main.c: 99:     PORTDbits.RD0=0x00;
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"115
-[; ;main.c: 115:    _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"116
-[; ;main.c: 116:     PORTDbits.RD0=0xFF;
+"100
+[; ;main.c: 100:    _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"101
+[; ;main.c: 101:     PORTDbits.RD0=0xFF;
 [e = . . _PORTDbits 0 0 -> -> 255 `i `uc ]
-"117
-[; ;main.c: 117:     _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"102
+[; ;main.c: 102:    _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"103
+[; ;main.c: 103:     PORTDbits.RD0=0x00;
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"110
+[; ;main.c: 110:     while(1)
+[e :U 306 ]
+"111
+[; ;main.c: 111:    {
+{
+"113
+[; ;main.c: 113:     min_pos = neutral_pos - (neutral_pos*0.30);
+[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.30 `ui ]
+"114
+[; ;main.c: 114:     max_pos = neutral_pos + (neutral_pos*0.30);
+[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.30 `ui ]
+"116
+[; ;main.c: 116:     real_pos = ADCRead_Pos();
+[e = _real_pos ( _ADCRead_Pos ..  ]
 "118
-[; ;main.c: 118:     PORTDbits.RD0=0x00;
+[; ;main.c: 118:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 308  ]
+{
+"120
+[; ;main.c: 120:       PORTDbits.RD0=0;
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
 "122
-[; ;main.c: 122:     min_pos = neutral_pos - (neutral_pos*0.20);
-[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"123
-[; ;main.c: 123:     max_pos = neutral_pos + (neutral_pos*0.20);
-[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.20 `ui ]
-"126
-[; ;main.c: 126:     while(1)
-[e :U 307 ]
-"127
-[; ;main.c: 127:    {
-{
-"129
-[; ;main.c: 129:     real_pos = ADCRead_Pos();
-[e = _real_pos ( _ADCRead_Pos ..  ]
-"131
-[; ;main.c: 131:      if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
-[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 309  ]
-{
-"133
-[; ;main.c: 133:       PORTDbits.RD0=0;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"134
-[; ;main.c: 134:      _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"135
-[; ;main.c: 135:       PORTDbits.RD7=0;
-[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-"136
-[; ;main.c: 136:       Vibration_ON(0);
+[; ;main.c: 122:       Vibration_ON(0);
 [e ( _Vibration_ON (1 -> -> 0 `i `ui ]
-"138
-[; ;main.c: 138:      }
+"124
+[; ;main.c: 124:      }
 }
-[e $U 310  ]
-"140
-[; ;main.c: 140:      else{
-[e :U 309 ]
-{
-"142
-[; ;main.c: 142:          unsigned int percentage = ((real_pos*100)/256);
-[v _percentage `ui ~T0 @X0 1 a ]
-[e = _percentage / * _real_pos -> -> 100 `i `ui -> -> 256 `i `ui ]
-"143
-[; ;main.c: 143:          Vibration_ON(percentage);
-[e ( _Vibration_ON (1 _percentage ]
-"145
-[; ;main.c: 145:          PORTDbits.RD0=1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"148
-[; ;main.c: 148:      }
-}
-[e :U 310 ]
-"152
-[; ;main.c: 152: }
-}
-[e :U 306 ]
-[e $U 307  ]
+[e $U 309  ]
+"126
+[; ;main.c: 126:      else{
 [e :U 308 ]
-"155
-[; ;main.c: 155: }
-[e :UE 305 ]
+{
+"128
+[; ;main.c: 128:          unsigned int percentage ;
+[v _percentage `ui ~T0 @X0 1 a ]
+"131
+[; ;main.c: 131:          PORTDbits.RD0=1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"132
+[; ;main.c: 132:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"134
+[; ;main.c: 134:         Vibration_ON(40);
+[e ( _Vibration_ON (1 -> -> 40 `i `ui ]
+"136
+[; ;main.c: 136:      }
+}
+[e :U 309 ]
+"138
+[; ;main.c: 138: }
+}
+[e :U 305 ]
+[e $U 306  ]
+[e :U 307 ]
+"141
+[; ;main.c: 141: }
+[e :UE 304 ]
 }

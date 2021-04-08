@@ -5291,17 +5291,36 @@ double yn(int, double);
 # 13 "./user.h"
 void InitApp(void);
 # 20 "interrupts.c" 2
-# 30 "interrupts.c"
+# 1 "./ADC_Read.h" 1
+unsigned int neutral_pos;
+unsigned int real_pos;
+
+void Init_ADC(void);
+
+unsigned int ADCRead_Pos();
+# 21 "interrupts.c" 2
+# 31 "interrupts.c"
 unsigned int real_pos;
 unsigned int neutral_pos;
 
 
 void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
-# 44 "interrupts.c"
+# 45 "interrupts.c"
 {
-# 54 "interrupts.c"
+
+
+    if(INTCONbits.INT0IF==1){
+
+        PORTDbits.RD1=1;
+        _delay((unsigned long)((20)*(8000000/4000.0)));
+        neutral_pos = ADCRead_Pos();
+        PORTDbits.RD1=0;
+        INTCONbits.INT0IF=0;
+
+
+    }
 }
-# 84 "interrupts.c"
+# 88 "interrupts.c"
 void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
@@ -5311,5 +5330,5 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
 {
-# 129 "interrupts.c"
+# 133 "interrupts.c"
 }
