@@ -4921,12 +4921,6 @@ typedef uint32_t uint_fast32_t;
 void InitApp(void);
 # 21 "user.c" 2
 
-
-
-
-
-
-
 void InitApp(void)
 {
 
@@ -4938,30 +4932,5 @@ void InitApp(void)
     TRISDbits.RD7 = 0;
     TRISAbits.RA0 = 1;
     TRISBbits.RB0 = 1;
-
-
-
-
-
-    T2CONbits.T2CKPS1 = 1;
-    T2CONbits.TMR2ON = 1;
-    PR2 = 194;
-
-    CCP1CONbits.CCP1M = 0x0c;
-
-    CCP1CONbits.P1M1 = 0;
-    CCP1CONbits.P1M0 = 1;
-
-    CCPR1L = 0x61;
-    CCP1CONbits.DC1B1 = 1;
-    CCP1CONbits.DC1B0 = 0;
-
-
-
-    ANSELHbits.ANS12 = 0;
-    RCONbits.IPEN = 1;
-    INTCONbits.GIE = 1;
-    INTCONbits.INT0IE=1;
-    INTCONbits.INT0IF=0;
-    INTCON2bits.INTEDG0 = 1;
+# 45 "user.c"
 }

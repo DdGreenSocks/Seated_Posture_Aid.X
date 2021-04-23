@@ -18,7 +18,9 @@
 
 #include "user.h"  
 #include "ADC_Read.h"
-#define _XTAL_FREQ 8000000
+#include "EUSART.h"
+#include "PWM.h"
+#define _XTAL_FREQ 16000000
 #endif
 
 /******************************************************************************/
@@ -27,9 +29,6 @@
 
 /* High-priority service */
 
-
-unsigned int real_pos;
-unsigned int neutral_pos;
 
 #if defined(__XC) || defined(HI_TECH_C)
 void __interrupt(high_priority) high_isr(void)
@@ -43,19 +42,12 @@ void high_isr(void)
 
 
 {
-    
-    
-    if(INTCONbits.INT0IF==1){
-        
-        PORTDbits.RD1=1;
-        __delay_ms(20);
-        neutral_pos = ADCRead_Pos();
-        PORTDbits.RD1=0;
-        INTCONbits.INT0IF=0;
-        
-        //return neutral_pos;
-    }
+       
+
+
 }
+   
+
       /* This code stub shows general interrupt handling.  Note that these
       conditional statements are not handled within 3 seperate if blocks.
       Do not use a seperate if block for each interrupt flag to avoid run
@@ -100,14 +92,7 @@ void low_isr(void)
       Do not use a seperate if block for each interrupt flag to avoid run
       time errors. */
     
-   // if (ADIF == 1) {
-
-       // real_pos = Continous_Read();
-        
-           
-       // }
-         
-        //  ADIF = 0;
+  
         
 
 #if 0

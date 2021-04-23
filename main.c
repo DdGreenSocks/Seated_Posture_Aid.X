@@ -26,7 +26,10 @@
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp */
 #include "ADC_Read.h"
-#define _XTAL_FREQ 8000000
+#include "PWM.h"
+#include "EUSART.h"
+
+#define _XTAL_FREQ 16000000
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -34,42 +37,9 @@
 
 unsigned int max_pos;
 unsigned int min_pos;
-unsigned int duty_cycle; 
-unsigned int temp;
-
-/******************************************************************************/
-/* Function to set PWM Duty Cycle                                                           */
-/******************************************************************************/
-
-void PWMSetDutyCycle(unsigned int percentage) {
-
-    long output;
-
-    if (percentage > 100) {
-        return;
-    }
-
-    output = ((long) (PR2 + 1)) << 2;
-    output=  output * ((long) percentage);
-    output = output / 100;
-
-    CCPR1L = output >> 2; // 10-bit value 8 MSBs
-    DC1B1 = (output & 2) >> 1; // 10-bit value bit 1
-    DC1B0 = (output & 1); // 10-bit value bit 0
-
-}
-
-/******************************************************************************/
-/* Function to operate Vibration Motor                                                              */
-/******************************************************************************/
-
-void Vibration_ON(unsigned int percentage){
-    
-    
-        
-   PWMSetDutyCycle(percentage);
-  
-}
+int send_bad_posture_msg_counter;
+int send_good_posture_msg_counter;
+int get_value;
 
 /******************************************************************************/
 /* Main Program                                                               */
@@ -81,61 +51,87 @@ void main(void)
     ConfigureOscillator();
 
     /* Initialize I/O and Peripherals for application */
-    InitApp(); // calls user.c code
-    Init_ADC();
     
+    InitApp();          // calls user.c code
+    Init_ADC();         // calls ADC.c code
+    Init_PWM();         // calls PWM.c code
+    Init_EUSART();      // calls EUSART.c code
     
-    neutral_pos = 0x00;
-    real_pos =0x00;
-    PORTDbits.RD7=0;
+    /* Clears existing memory associated with variables */
+    neutral_pos = 0;
+    real_pos =0;
+    send_bad_posture_msg_counter = 0;
+    send_good_posture_msg_counter = 0;
+    PORTD =0x00;
+    PORTAbits.RA0 =0;
     Vibration_ON(0);
     
-  
- 
+    /* Reads in initial position of flex sensor*/
     neutral_pos = ADCRead_Pos();
     
-    PORTDbits.RD0=0xFF;
-    __delay_ms(200);
-    PORTDbits.RD0=0x00; 
-   __delay_ms(200);
-    PORTDbits.RD0=0xFF;
-   __delay_ms(200);
-    PORTDbits.RD0=0x00; 
-    //LED Blinks once to show it has initialized
-    
-    
-   
-    
+//    PORTDbits.RD1=0xFF;
+//    __delay_ms(200);
+//    PORTDbits.RD1=0x00; 
+//    __delay_ms(200);
+//    PORTDbits.RD1=0xFF;
+//    __delay_ms(200);
+//    PORTDbits.RD1=0x00; 
+    //LED on RD1 blinks twice to show it has initialized
     
     while(1)
    {
-     
-    min_pos = neutral_pos - (neutral_pos*0.30); // gets lower tolerance (-30%)
-    max_pos = neutral_pos + (neutral_pos*0.30); // gets higher tolerance (+30%)    
+       
+    min_pos = neutral_pos - (neutral_pos*0.10); // gets lower tolerance (-30%)
+    max_pos = neutral_pos + (neutral_pos*0.10); // gets higher tolerance (+30%)    
         
     real_pos = ADCRead_Pos(); //Continuously reads Flex sensor value
         
-     if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+        if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
             
-      PORTDbits.RD0=0; //Lights turn OFF if Sensor is within 30% of initial value 
+            PORTDbits.RD0=0;    //Light turns OFF if in 30% range 
      
-      Vibration_ON(0);
-      
-     }
+            Vibration_ON(0);    //Vibration turns OFF if in 30% range 
+            send_bad_posture_msg_counter = 0;
+            if(send_good_posture_msg_counter == 0){
+                BT_load_string("1");
+                __delay_ms(100);   //Delay before vibration to prevent
+                broadcast_BT();
+            }
+            send_good_posture_msg_counter++;
+        }
      
-     else{
+        else{
          
-         unsigned int percentage ; 
-         
-         
-         PORTDbits.RD0=1; //Lights turn ON if Sensor is NOT within 30% of initial value 
-        __delay_ms(100);
+            PORTDbits.RD0=1;    //Light turns ON if NOT in 30 % range 
+            
+            __delay_ms(100);   //Delay before vibration to prevent 
+                               //vibration for small movement
+            
+            Vibration_ON(50);  //Vibration turns ON if NOT in 30 % range
+            send_good_posture_msg_counter = 0;
+            if (send_bad_posture_msg_counter == 0){
+                BT_load_string("0");
+                __delay_ms(100);   //Delay before vibration to prevent
+                broadcast_BT();
+                
+            }
+            send_bad_posture_msg_counter++;
+             
+        }   
         
-        Vibration_ON(40);
-      
-     }
-        
-}
+    if (RCIF == 1){ 
+            
+            if(RCREG=='1'){
+                
+                PORTDbits.RD1=1; //Turn on LED
+                __delay_ms(200);
+                neutral_pos = ADCRead_Pos();
+                //PORTDbits.RD1=0;
+            }
+            
+        }
+    
+    }
     
 
 }

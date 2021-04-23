@@ -1,4 +1,4 @@
-# 1 "ADC.c"
+# 1 "PWM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC.c" 2
+# 1 "PWM.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
@@ -4812,35 +4812,23 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 2 "ADC.c" 2
+# 2 "PWM.c" 2
 
 
-
-    void Init_ADC(void)
+void Init_PWM(void)
 {
-    TRISAbits.RA0 = 1;
+    T2CONbits.T2CKPS1 = 1;
+    T2CONbits.TMR2ON = 1;
+    PR2 = 194;
 
-    ANSELbits.ANS0 = 1;
-    ADCON2bits.ADFM = 0;
+    CCP1CONbits.CCP1M = 0x0c;
 
-    ADCON2bits.ACQT2 = 1;
-    ADCON2bits.ACQT1 = 0;
-    ADCON2bits.ACQT0 = 1;
+    CCP1CONbits.P1M1 = 0;
+    CCP1CONbits.P1M0 = 1;
 
-    ADCON2bits.ADCS2 = 0;
-    ADCON2bits.ADCS1 = 1;
-    ADCON2bits.ADCS0 = 1;
-
-    ADCON1bits.VCFG1 = 0;
-    ADCON1bits.VCFG0 = 0;
-
-    ADCON0bits.CHS3=0;
-    ADCON0bits.CHS2=0;
-    ADCON0bits.CHS1=0;
-    ADCON0bits.CHS0=0;
-
-    ADCON0bits.ADON = 1;
-
+    CCPR1L = 0x61;
+    CCP1CONbits.DC1B1 = 1;
+    CCP1CONbits.DC1B0 = 0;
 
 
 }
@@ -4849,14 +4837,20 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
- unsigned int ADCRead_Pos(){
+void Vibration_ON(unsigned int percentage) {
 
+    long output;
 
-  GO = 1;
-  unsigned int temp;
+    if (percentage > 100) {
+        return;
+    }
 
-  temp = ADRESL;
-  temp = temp + (ADRESH << 8);
-  return temp;
+    output = ((long) (PR2 + 1)) << 2;
+    output= output * ((long) percentage);
+    output = output / 100;
+
+    CCPR1L = output >> 2;
+    DC1B1 = (output & 2) >> 1;
+    DC1B0 = (output & 1);
 
 }

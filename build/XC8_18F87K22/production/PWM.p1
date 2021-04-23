@@ -1,111 +1,46 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"19 ./system.h
-[; ;./system.h: 19: void ConfigureOscillator(void);
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"13 ./user.h
-[; ;./user.h: 13: void InitApp(void);
-[v _InitApp `(v ~T0 @X0 0 ef ]
-"4 ./ADC_Read.h
-[; ;./ADC_Read.h: 4: void Init_ADC(void);
-[v _Init_ADC `(v ~T0 @X0 0 ef ]
-"4 ./PWM.h
-[; ;./PWM.h: 4: void Init_PWM(void);
-[v _Init_PWM `(v ~T0 @X0 0 ef ]
-"4 ./EUSART.h
-[; ;./EUSART.h: 4: void Init_EUSART(void);
-[v _Init_EUSART `(v ~T0 @X0 0 ef ]
-"1184 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1184: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-"558
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 558:     struct {
-[s S28 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S28 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"568
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 568:     struct {
-[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S29 . AN0 AN1 AN2 AN3 . AN4 ]
-"576
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 576:     struct {
-[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S30 . C12IN0M C12IN1M C2INP C1INP C1OUT C2OUT ]
-"584
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 584:     struct {
-[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S31 . C12IN0N C12IN1N VREFM VREFP T0CKI SS ]
-"592
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 592:     struct {
-[s S32 :5 `uc 1 :1 `uc 1 ]
-[n S32 . . NOT_SS ]
-"596
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 596:     struct {
-[s S33 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S33 . . VREFN . nSS ]
-"602
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 602:     struct {
-[s S34 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S34 . . CVREF . LVDIN ]
-"608
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 608:     struct {
-[s S35 :5 `uc 1 :1 `uc 1 ]
-[n S35 . . HLVDIN ]
-"612
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 612:     struct {
-[s S36 :1 `uc 1 :6 `uc 1 :1 `uc 1 ]
-[n S36 . ULPWUIN . RJPU ]
-"557
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 557: typedef union {
-[u S27 `S28 1 `S29 1 `S30 1 `S31 1 `S32 1 `S33 1 `S34 1 `S35 1 `S36 1 ]
-[n S27 . . . . . . . . . . ]
-"618
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 618: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
-[v _PORTAbits `VS27 ~T0 @X0 0 e@3968 ]
-"5 ./PWM.h
-[; ;./PWM.h: 5: void Vibration_ON(unsigned int percentage);
-[v _Vibration_ON `(v ~T0 @X0 0 ef1`ui ]
-"6 ./ADC_Read.h
-[; ;./ADC_Read.h: 6: unsigned int ADCRead_Pos();
-[v _ADCRead_Pos `(ui ~T0 @X0 0 e? ]
-"1190 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1190:     struct {
-[s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S52 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"1200
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1200:     struct {
-[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S53 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"1210
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1210:     struct {
-[s S54 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S54 . . P1B P1C P1D ]
-"1216
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1216:     struct {
-[s S55 :7 `uc 1 :1 `uc 1 ]
-[n S55 . . SS2 ]
-"1189
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1189: typedef union {
-[u S51 `S52 1 `S53 1 `S54 1 `S55 1 ]
-[n S51 . . . . . ]
-"1221
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1221: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS51 ~T0 @X0 0 e@3971 ]
-"9 ./EUSART.h
-[; ;./EUSART.h: 9: void BT_load_string(char* string);
-[v _BT_load_string `(v ~T0 @X0 0 ef1`*uc ]
-[v F2663 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF2663 ~T0 @X0 0 e ]
-[p i __delay ]
-"7 ./EUSART.h
-[; ;./EUSART.h: 7: void broadcast_BT();
-[v _broadcast_BT `(v ~T0 @X0 0 e? ]
-"8630 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 8630: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"4233
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4233: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
+"5692 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5692:     struct {
+[s S238 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S238 . T2CKPS TMR2ON T2OUTPS ]
+"5697
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5697:     struct {
+[s S239 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S239 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"5691
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5691: typedef union {
+[u S237 `S238 1 `S239 1 ]
+[n S237 . . . ]
+"5707
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5707: extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFCA)));
+[v _T2CONbits `VS237 ~T0 @X0 0 e@4042 ]
+"5757
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5757: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
+[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"4956
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4956:     struct {
+[s S200 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S200 . CCP1M DC1B P1M ]
+"4961
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4961:     struct {
+[s S201 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S201 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 DC1B0 DC1B1 P1M0 P1M1 ]
+"4955
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4955: typedef union {
+[u S199 `S200 1 `S201 1 ]
+[n S199 . . . ]
+"4972
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4972: extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0xFBD)));
+[v _CCP1CONbits `VS199 ~T0 @X0 0 e@4029 ]
+"5039
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 5039: extern volatile unsigned char CCPR1L __attribute__((address(0xFBE)));
+[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
+"7742
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7742: extern volatile __bit DC1B1 __attribute__((address(0x7DED)));
+[v _DC1B1 `Vb ~T0 @X0 0 e@32237 ]
+"7739
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7739: extern volatile __bit DC1B0 __attribute__((address(0x7DEC)));
+[v _DC1B0 `Vb ~T0 @X0 0 e@32236 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -544,207 +479,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"1 ./ADC_Read.h
-[; ;./ADC_Read.h: 1: unsigned int neutral_pos;
-[v _neutral_pos `ui ~T0 @X0 1 e ]
-"2
-[; ;./ADC_Read.h: 2: unsigned int real_pos;
-[v _real_pos `ui ~T0 @X0 1 e ]
-"1 ./PWM.h
-[; ;./PWM.h: 1: unsigned int duty_cycle;
-[v _duty_cycle `ui ~T0 @X0 1 e ]
-"2
-[; ;./PWM.h: 2: unsigned int temp;
-[v _temp `ui ~T0 @X0 1 e ]
-"38 main.c
-[; ;main.c: 38: unsigned int max_pos;
-[v _max_pos `ui ~T0 @X0 1 e ]
-"39
-[; ;main.c: 39: unsigned int min_pos;
-[v _min_pos `ui ~T0 @X0 1 e ]
-"40
-[; ;main.c: 40: int send_bad_posture_msg_counter;
-[v _send_bad_posture_msg_counter `i ~T0 @X0 1 e ]
-"41
-[; ;main.c: 41: int send_good_posture_msg_counter;
-[v _send_good_posture_msg_counter `i ~T0 @X0 1 e ]
-"42
-[; ;main.c: 42: int get_value;
-[v _get_value `i ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"48
-[; ;main.c: 48: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
-"49
-[; ;main.c: 49: {
+"4 PWM.c
+[; ;PWM.c: 4: void Init_PWM(void)
+[v _Init_PWM `(v ~T0 @X0 1 ef ]
+"5
+[; ;PWM.c: 5: {
 {
-[e :U _main ]
+[e :U _Init_PWM ]
 [f ]
-"51
-[; ;main.c: 51:     ConfigureOscillator();
-[e ( _ConfigureOscillator ..  ]
-"55
-[; ;main.c: 55:     InitApp();
-[e ( _InitApp ..  ]
-"56
-[; ;main.c: 56:     Init_ADC();
-[e ( _Init_ADC ..  ]
-"57
-[; ;main.c: 57:     Init_PWM();
-[e ( _Init_PWM ..  ]
-"58
-[; ;main.c: 58:     Init_EUSART();
-[e ( _Init_EUSART ..  ]
-"61
-[; ;main.c: 61:     neutral_pos = 0;
-[e = _neutral_pos -> -> 0 `i `ui ]
-"62
-[; ;main.c: 62:     real_pos =0;
-[e = _real_pos -> -> 0 `i `ui ]
-"63
-[; ;main.c: 63:     send_bad_posture_msg_counter = 0;
-[e = _send_bad_posture_msg_counter -> 0 `i ]
-"64
-[; ;main.c: 64:     send_good_posture_msg_counter = 0;
-[e = _send_good_posture_msg_counter -> 0 `i ]
-"65
-[; ;main.c: 65:     PORTD =0x00;
-[e = _PORTD -> -> 0 `i `uc ]
-"66
-[; ;main.c: 66:     PORTAbits.RA0 =0;
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"67
-[; ;main.c: 67:     Vibration_ON(0);
-[e ( _Vibration_ON (1 -> -> 0 `i `ui ]
-"70
-[; ;main.c: 70:     neutral_pos = ADCRead_Pos();
-[e = _neutral_pos ( _ADCRead_Pos ..  ]
-"81
-[; ;main.c: 81:     while(1)
-[e :U 303 ]
-"82
-[; ;main.c: 82:    {
-{
-"84
-[; ;main.c: 84:     min_pos = neutral_pos - (neutral_pos*0.10);
-[e = _min_pos -> - -> _neutral_pos `d * -> _neutral_pos `d .0.10 `ui ]
-"85
-[; ;main.c: 85:     max_pos = neutral_pos + (neutral_pos*0.10);
-[e = _max_pos -> + -> _neutral_pos `d * -> _neutral_pos `d .0.10 `ui ]
-"87
-[; ;main.c: 87:     real_pos = ADCRead_Pos();
-[e = _real_pos ( _ADCRead_Pos ..  ]
-"89
-[; ;main.c: 89:         if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
-[e $ ! && >= _real_pos _min_pos <= _real_pos _max_pos 305  ]
-{
-"91
-[; ;main.c: 91:             PORTDbits.RD0=0;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"93
-[; ;main.c: 93:             Vibration_ON(0);
-[e ( _Vibration_ON (1 -> -> 0 `i `ui ]
-"94
-[; ;main.c: 94:             send_bad_posture_msg_counter = 0;
-[e = _send_bad_posture_msg_counter -> 0 `i ]
-"95
-[; ;main.c: 95:             if(send_good_posture_msg_counter == 0){
-[e $ ! == _send_good_posture_msg_counter -> 0 `i 306  ]
-{
-"96
-[; ;main.c: 96:                 BT_load_string("1");
-[e ( _BT_load_string (1 :s 1C ]
-"97
-[; ;main.c: 97:                 _delay((unsigned long)((100)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"98
-[; ;main.c: 98:                 broadcast_BT();
-[e ( _broadcast_BT ..  ]
-"99
-[; ;main.c: 99:             }
-}
-[e :U 306 ]
-"100
-[; ;main.c: 100:             send_good_posture_msg_counter++;
-[e ++ _send_good_posture_msg_counter -> 1 `i ]
-"101
-[; ;main.c: 101:         }
-}
-[e $U 307  ]
-"103
-[; ;main.c: 103:         else{
-[e :U 305 ]
-{
-"105
-[; ;main.c: 105:             PORTDbits.RD0=1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"107
-[; ;main.c: 107:             _delay((unsigned long)((100)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:             Vibration_ON(50);
-[e ( _Vibration_ON (1 -> -> 50 `i `ui ]
-"111
-[; ;main.c: 111:             send_good_posture_msg_counter = 0;
-[e = _send_good_posture_msg_counter -> 0 `i ]
-"112
-[; ;main.c: 112:             if (send_bad_posture_msg_counter == 0){
-[e $ ! == _send_bad_posture_msg_counter -> 0 `i 308  ]
-{
-"113
-[; ;main.c: 113:                 BT_load_string("0");
-[e ( _BT_load_string (1 :s 2C ]
-"114
-[; ;main.c: 114:                 _delay((unsigned long)((100)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"115
-[; ;main.c: 115:                 broadcast_BT();
-[e ( _broadcast_BT ..  ]
-"117
-[; ;main.c: 117:             }
-}
-[e :U 308 ]
-"118
-[; ;main.c: 118:             send_bad_posture_msg_counter++;
-[e ++ _send_bad_posture_msg_counter -> 1 `i ]
-"120
-[; ;main.c: 120:         }
-}
-[e :U 307 ]
-"122
-[; ;main.c: 122:     if (RCIF == 1){
-[e $ ! == -> _RCIF `i -> 1 `i 309  ]
-{
-"124
-[; ;main.c: 124:             if(RCREG=='1'){
-[e $ ! == -> _RCREG `ui -> 49 `ui 310  ]
-{
-"126
-[; ;main.c: 126:                 PORTDbits.RD1=1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"127
-[; ;main.c: 127:                 _delay((unsigned long)((200)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"128
-[; ;main.c: 128:                 neutral_pos = ADCRead_Pos();
-[e = _neutral_pos ( _ADCRead_Pos ..  ]
-"130
-[; ;main.c: 130:             }
-}
-[e :U 310 ]
-"132
-[; ;main.c: 132:         }
-}
-[e :U 309 ]
-"134
-[; ;main.c: 134:     }
-}
-[e :U 302 ]
-[e $U 303  ]
-[e :U 304 ]
-"137
-[; ;main.c: 137: }
+"6
+[; ;PWM.c: 6:     T2CONbits.T2CKPS1 = 1;
+[e = . . _T2CONbits 1 1 -> -> 1 `i `uc ]
+"7
+[; ;PWM.c: 7:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"8
+[; ;PWM.c: 8:     PR2 = 194;
+[e = _PR2 -> -> 194 `i `uc ]
+"10
+[; ;PWM.c: 10:     CCP1CONbits.CCP1M = 0x0c;
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+"12
+[; ;PWM.c: 12:     CCP1CONbits.P1M1 = 0;
+[e = . . _CCP1CONbits 1 7 -> -> 0 `i `uc ]
+"13
+[; ;PWM.c: 13:     CCP1CONbits.P1M0 = 1;
+[e = . . _CCP1CONbits 1 6 -> -> 1 `i `uc ]
+"15
+[; ;PWM.c: 15:     CCPR1L = 0x61;
+[e = _CCPR1L -> -> 97 `i `uc ]
+"16
+[; ;PWM.c: 16:     CCP1CONbits.DC1B1 = 1;
+[e = . . _CCP1CONbits 1 5 -> -> 1 `i `uc ]
+"17
+[; ;PWM.c: 17:     CCP1CONbits.DC1B0 = 0;
+[e = . . _CCP1CONbits 1 4 -> -> 0 `i `uc ]
+"20
+[; ;PWM.c: 20: }
 [e :UE 301 ]
 }
-[a 1C 49 0 ]
-[a 2C 48 0 ]
+"26
+[; ;PWM.c: 26: void Vibration_ON(unsigned int percentage) {
+[v _Vibration_ON `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _Vibration_ON ]
+[v _percentage `ui ~T0 @X0 1 r1 ]
+[f ]
+"28
+[; ;PWM.c: 28:     long output;
+[v _output `l ~T0 @X0 1 a ]
+"30
+[; ;PWM.c: 30:     if (percentage > 100) {
+[e $ ! > _percentage -> -> 100 `i `ui 303  ]
+{
+"31
+[; ;PWM.c: 31:         return;
+[e $UE 302  ]
+"32
+[; ;PWM.c: 32:     }
+}
+[e :U 303 ]
+"34
+[; ;PWM.c: 34:     output = ((long) (PR2 + 1)) << 2;
+[e = _output << -> + -> _PR2 `i -> 1 `i `l -> 2 `i ]
+"35
+[; ;PWM.c: 35:     output= output * ((long) percentage);
+[e = _output * _output -> _percentage `l ]
+"36
+[; ;PWM.c: 36:     output = output / 100;
+[e = _output / _output -> -> 100 `i `l ]
+"38
+[; ;PWM.c: 38:     CCPR1L = output >> 2;
+[e = _CCPR1L -> >> _output -> 2 `i `uc ]
+"39
+[; ;PWM.c: 39:     DC1B1 = (output & 2) >> 1;
+[e = _DC1B1 -> >> & _output -> -> 2 `i `l -> 1 `i `b ]
+"40
+[; ;PWM.c: 40:     DC1B0 = (output & 1);
+[e = _DC1B0 -> & _output -> -> 1 `i `l `b ]
+"42
+[; ;PWM.c: 42: }
+[e :UE 302 ]
+}

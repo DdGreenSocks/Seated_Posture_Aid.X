@@ -1,55 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T40 __interrupt high_priority ]
-"7023 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7023:     struct {
-[s S295 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S295 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"7033
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7033:     struct {
-[s S296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S296 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"7043
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7043:     struct {
-[s S297 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S297 . . GIEL GIEH ]
-"7022
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7022: typedef union {
-[u S294 `S295 1 `S296 1 `S297 1 ]
-[n S294 . . . . ]
-"7049
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7049: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS294 ~T0 @X0 0 e@4082 ]
-"1190
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1190:     struct {
-[s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S52 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"1200
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1200:     struct {
-[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S53 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"1210
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1210:     struct {
-[s S54 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S54 . . P1B P1C P1D ]
-"1216
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1216:     struct {
-[s S55 :7 `uc 1 :1 `uc 1 ]
-[n S55 . . SS2 ]
-"1189
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1189: typedef union {
-[u S51 `S52 1 `S53 1 `S54 1 `S55 1 ]
-[n S51 . . . . . ]
-"1221
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 1221: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS51 ~T0 @X0 0 e@3971 ]
-[v F2663 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF2663 ~T0 @X0 0 e ]
-[p i __delay ]
-"6 ./ADC_Read.h
-[; ;./ADC_Read.h: 6: unsigned int ADCRead_Pos();
-[v _ADCRead_Pos `(ui ~T0 @X0 0 e? ]
 [t T41 __interrupt low_priority ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
@@ -495,58 +446,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2
 [; ;./ADC_Read.h: 2: unsigned int real_pos;
 [v _real_pos `ui ~T0 @X0 1 e ]
-"31 interrupts.c
-[; ;interrupts.c: 31: unsigned int real_pos;
-[v _real_pos `ui ~T0 @X0 1 e ]
-"32
-[; ;interrupts.c: 32: unsigned int neutral_pos;
-[v _neutral_pos `ui ~T0 @X0 1 e ]
+"1 ./PWM.h
+[; ;./PWM.h: 1: unsigned int duty_cycle;
+[v _duty_cycle `ui ~T0 @X0 1 e ]
+"2
+[; ;./PWM.h: 2: unsigned int temp;
+[v _temp `ui ~T0 @X0 1 e ]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"35
-[; ;interrupts.c: 35: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
+"34 interrupts.c
+[; ;interrupts.c: 34: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 [v _high_isr `(v ~T40 @X0 1 ef ]
-"45
-[; ;interrupts.c: 45: {
+"44
+[; ;interrupts.c: 44: {
 {
 [e :U _high_isr ]
 [f ]
-"48
-[; ;interrupts.c: 48:     if(INTCONbits.INT0IF==1){
-[e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 302  ]
-{
-"50
-[; ;interrupts.c: 50:         PORTDbits.RD1=1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"51
-[; ;interrupts.c: 51:         _delay((unsigned long)((20)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"52
-[; ;interrupts.c: 52:         neutral_pos = ADCRead_Pos();
-[e = _neutral_pos ( _ADCRead_Pos ..  ]
-"53
-[; ;interrupts.c: 53:         PORTDbits.RD1=0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"54
-[; ;interrupts.c: 54:         INTCONbits.INT0IF=0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"57
-[; ;interrupts.c: 57:     }
-}
-[e :U 302 ]
-"58
-[; ;interrupts.c: 58: }
+"61
+[; ;interrupts.c: 61: }
 [e :UE 301 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"88
-[; ;interrupts.c: 88: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
+"93
+[; ;interrupts.c: 93: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 [v _low_isr `(v ~T41 @X0 1 ef ]
-"96
-[; ;interrupts.c: 96: {
+"101
+[; ;interrupts.c: 101: {
 {
 [e :U _low_isr ]
 [f ]
-"133
-[; ;interrupts.c: 133: }
-[e :UE 303 ]
+"138
+[; ;interrupts.c: 138: }
+[e :UE 302 ]
 }

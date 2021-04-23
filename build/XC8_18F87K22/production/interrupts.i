@@ -5299,28 +5299,31 @@ void Init_ADC(void);
 
 unsigned int ADCRead_Pos();
 # 21 "interrupts.c" 2
-# 31 "interrupts.c"
-unsigned int real_pos;
-unsigned int neutral_pos;
+# 1 "./EUSART.h" 1
 
 
+
+void Init_EUSART(void);
+
+void BT_load_char(char bt);
+void broadcast_BT();
+int BT_get_char();
+void BT_load_string(char* string);
+# 22 "interrupts.c" 2
+# 1 "./PWM.h" 1
+unsigned int duty_cycle;
+unsigned int temp;
+
+void Init_PWM(void);
+void Vibration_ON(unsigned int percentage);
+# 23 "interrupts.c" 2
+# 34 "interrupts.c"
 void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
-# 45 "interrupts.c"
+# 44 "interrupts.c"
 {
-
-
-    if(INTCONbits.INT0IF==1){
-
-        PORTDbits.RD1=1;
-        _delay((unsigned long)((20)*(8000000/4000.0)));
-        neutral_pos = ADCRead_Pos();
-        PORTDbits.RD1=0;
-        INTCONbits.INT0IF=0;
-
-
-    }
+# 61 "interrupts.c"
 }
-# 88 "interrupts.c"
+# 93 "interrupts.c"
 void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
@@ -5330,5 +5333,5 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
 {
-# 133 "interrupts.c"
+# 138 "interrupts.c"
 }

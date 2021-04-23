@@ -1,7 +1,4 @@
-/*
- * File:   ADC.c
- * 
- */
+
 #include <xc.h>
 
     

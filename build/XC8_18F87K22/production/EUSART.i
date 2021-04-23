@@ -1,4 +1,4 @@
-# 1 "ADC.c"
+# 1 "EUSART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ADC.c" 2
+# 1 "EUSART.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
@@ -4812,51 +4812,78 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 2 "ADC.c" 2
+# 2 "EUSART.c" 2
 
 
 
-    void Init_ADC(void)
-{
-    TRISAbits.RA0 = 1;
+void Init_EUSART(void){
 
-    ANSELbits.ANS0 = 1;
-    ADCON2bits.ADFM = 0;
+  OSCCONbits.IRCF0=1;
+  OSCCONbits.IRCF1=1;
+  OSCCONbits.IRCF2=1;
+  TRISDbits.RD0=0;
+  TRISDbits.RD1=0;
+  TRISCbits.RC7=1;
+  TRISCbits.RC6=1;
 
-    ADCON2bits.ACQT2 = 1;
-    ADCON2bits.ACQT1 = 0;
-    ADCON2bits.ACQT0 = 1;
+  TXSTAbits.TXEN=1;
+  TXSTAbits.SYNC=0;
+  RCSTAbits.SPEN=1;
+  TXSTAbits.TX9=0;
 
-    ADCON2bits.ADCS2 = 0;
-    ADCON2bits.ADCS1 = 1;
-    ADCON2bits.ADCS0 = 1;
+  BAUDCONbits.BRG16=1;
 
-    ADCON1bits.VCFG1 = 0;
-    ADCON1bits.VCFG0 = 0;
+  SPBRG= 0x67;
 
-    ADCON0bits.CHS3=0;
-    ADCON0bits.CHS2=0;
-    ADCON0bits.CHS1=0;
-    ADCON0bits.CHS0=0;
+  RCSTAbits.CREN=1;
+  RCSTAbits.RX9=0;
 
-    ADCON0bits.ADON = 1;
 
+  PEIE=1;
+
+  PIE1bits.RCIE=1;
+  PIE1bits.TXIE=1;
 
 
 }
 
 
+void BT_load_char(char bt)
+{
+   TXREG = bt;
+   while(!TXIF);
+   while(!TRMT);
+ }
 
 
 
- unsigned int ADCRead_Pos(){
+void broadcast_BT()
+{
+  TXREG = 13;
+  _delay((unsigned long)((500)*(16000000/4000.0)));
+}
 
 
-  GO = 1;
-  unsigned int temp;
+int BT_get_char()
+{
+    if(OERR)
+    {
+        CREN = 0;
+        CREN = 1;
+    }
 
-  temp = ADRESL;
-  temp = temp + (ADRESH << 8);
-  return temp;
+    if(RCIF==1)
+    {
+        while(!RCIF);
+        return RCREG;
+    }
+    else
+        return 0;
+}
 
+
+void BT_load_string(char* string)
+{
+    while(*string)
+    BT_load_char(*string++);
 }
