@@ -4921,29 +4921,24 @@ void ConfigureOscillator(void);
 void InitApp(void);
 # 28 "main.c" 2
 # 1 "./ADC_Read.h" 1
-unsigned int neutral_pos;
-unsigned int real_pos;
+double neutral_pos;
+double real_pos;
 
 void Init_ADC(void);
 
-unsigned int ADCRead_Pos();
+double ADCRead_Pos(void);
 # 29 "main.c" 2
 # 1 "./PWM.h" 1
-unsigned int duty_cycle;
-unsigned int temp;
+
 
 void Init_PWM(void);
-void Vibration_ON(unsigned int percentage);
+void Vibration_ON(double percentage);
 # 30 "main.c" 2
 # 1 "./EUSART.h" 1
-
-
-
 void Init_EUSART(void);
 
 void BT_load_char(char bt);
-void broadcast_BT();
-int BT_get_char();
+void broadcast_BT(void);
 void BT_load_string(char* string);
 # 31 "main.c" 2
 
@@ -4953,11 +4948,10 @@ void BT_load_string(char* string);
 
 
 
-unsigned int max_pos;
-unsigned int min_pos;
-int send_bad_posture_msg_counter;
-int send_good_posture_msg_counter;
-int get_value;
+double max_pos;
+double min_pos;
+unsigned int send_bad_posture_msg_counter;
+unsigned int send_good_posture_msg_counter;
 
 
 
@@ -4977,31 +4971,50 @@ void main(void)
 
 
     neutral_pos = 0;
-    real_pos =0;
+    real_pos = 0;
     send_bad_posture_msg_counter = 0;
     send_good_posture_msg_counter = 0;
     PORTD =0x00;
-    PORTAbits.RA0 =0;
+    PORTA =0x00;
+
     Vibration_ON(0);
 
 
     neutral_pos = ADCRead_Pos();
-# 81 "main.c"
-    while(1)
+
+
+    PORTDbits.RD1=1;
+    PORTDbits.RD0=0;
+    _delay((unsigned long)((200)*(16000000/4000.0)));
+    PORTDbits.RD1=0;
+    PORTDbits.RD0=1;
+    _delay((unsigned long)((200)*(16000000/4000.0)));
+    PORTDbits.RD1=1;
+    PORTDbits.RD0=0;
+    _delay((unsigned long)((200)*(16000000/4000.0)));
+    PORTDbits.RD1=0;
+    PORTDbits.RD0=0;
+
+    max_pos = neutral_pos + (neutral_pos*0.10);
+    min_pos = neutral_pos - (neutral_pos*0.10);
+
+   while(1)
    {
 
-    min_pos = neutral_pos - (neutral_pos*0.10);
-    max_pos = neutral_pos + (neutral_pos*0.10);
 
-    real_pos = ADCRead_Pos();
 
-        if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+        real_pos = ADCRead_Pos();
+
+
+
+        if (real_pos>=min_pos && real_pos<=max_pos){
 
             PORTDbits.RD0=0;
-
             Vibration_ON(0);
+
             send_bad_posture_msg_counter = 0;
             if(send_good_posture_msg_counter == 0){
+
                 BT_load_string("1");
                 _delay((unsigned long)((100)*(16000000/4000.0)));
                 broadcast_BT();
@@ -5009,38 +5022,41 @@ void main(void)
             send_good_posture_msg_counter++;
         }
 
-        else{
 
+
+        else if(real_pos<min_pos || real_pos>max_pos){
+
+            _delay((unsigned long)((1000)*(16000000/4000.0)));
             PORTDbits.RD0=1;
+            Vibration_ON(real_pos/256);
 
-            _delay((unsigned long)((100)*(16000000/4000.0)));
-
-
-            Vibration_ON(50);
             send_good_posture_msg_counter = 0;
             if (send_bad_posture_msg_counter == 0){
+
                 BT_load_string("0");
                 _delay((unsigned long)((100)*(16000000/4000.0)));
                 broadcast_BT();
-
             }
             send_bad_posture_msg_counter++;
-
         }
 
-    if (RCIF == 1){
+
+
+        if (RCIF == 1){
 
             if(RCREG=='1'){
 
                 PORTDbits.RD1=1;
                 _delay((unsigned long)((200)*(16000000/4000.0)));
                 neutral_pos = ADCRead_Pos();
+                PORTDbits.RD1=0;
 
+                max_pos = neutral_pos + (neutral_pos*0.10);
+                min_pos = neutral_pos - (neutral_pos*0.10);
             }
 
         }
 
     }
-
 
 }

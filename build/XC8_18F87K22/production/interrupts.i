@@ -5292,38 +5292,35 @@ double yn(int, double);
 void InitApp(void);
 # 20 "interrupts.c" 2
 # 1 "./ADC_Read.h" 1
-unsigned int neutral_pos;
-unsigned int real_pos;
+double neutral_pos;
+double real_pos;
 
 void Init_ADC(void);
 
-unsigned int ADCRead_Pos();
+double ADCRead_Pos(void);
 # 21 "interrupts.c" 2
 # 1 "./EUSART.h" 1
-
-
-
 void Init_EUSART(void);
 
 void BT_load_char(char bt);
-void broadcast_BT();
-int BT_get_char();
+void broadcast_BT(void);
 void BT_load_string(char* string);
 # 22 "interrupts.c" 2
 # 1 "./PWM.h" 1
-unsigned int duty_cycle;
-unsigned int temp;
+
 
 void Init_PWM(void);
-void Vibration_ON(unsigned int percentage);
+void Vibration_ON(double percentage);
 # 23 "interrupts.c" 2
 # 34 "interrupts.c"
 void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 # 44 "interrupts.c"
 {
-# 61 "interrupts.c"
+
+
+
 }
-# 93 "interrupts.c"
+# 80 "interrupts.c"
 void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
@@ -5333,5 +5330,5 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 
 
 {
-# 138 "interrupts.c"
+# 118 "interrupts.c"
 }

@@ -4921,16 +4921,13 @@ typedef uint32_t uint_fast32_t;
 void InitApp(void);
 # 21 "user.c" 2
 
+
+
 void InitApp(void)
 {
-
-
-
-
     TRISDbits.RD0 = 0;
     TRISDbits.RD1 = 0;
     TRISDbits.RD7 = 0;
     TRISAbits.RA0 = 1;
     TRISBbits.RB0 = 1;
-# 45 "user.c"
 }

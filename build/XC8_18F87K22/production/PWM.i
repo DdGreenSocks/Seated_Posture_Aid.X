@@ -7,7 +7,6 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "PWM.c" 2
-
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4812,7 +4811,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 2 "PWM.c" 2
+# 1 "PWM.c" 2
 
 
 void Init_PWM(void)
@@ -4830,14 +4829,12 @@ void Init_PWM(void)
     CCP1CONbits.DC1B1 = 1;
     CCP1CONbits.DC1B0 = 0;
 
-
 }
 
 
 
 
-
-void Vibration_ON(unsigned int percentage) {
+void Vibration_ON(double percentage) {
 
     long output;
 
@@ -4848,6 +4845,7 @@ void Vibration_ON(unsigned int percentage) {
     output = ((long) (PR2 + 1)) << 2;
     output= output * ((long) percentage);
     output = output / 100;
+
 
     CCPR1L = output >> 2;
     DC1B1 = (output & 2) >> 1;

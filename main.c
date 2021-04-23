@@ -1,6 +1,6 @@
 /******************************************************************************/
 /* Name: Seated_Posture_Aid
- * Last Updated: 12/02/2021
+ * Last Updated: 23/04/2021
  * Author: Deirdre Kelly                                                    */
 /******************************************************************************/
 
@@ -35,11 +35,10 @@
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 
-unsigned int max_pos;
-unsigned int min_pos;
-int send_bad_posture_msg_counter;
-int send_good_posture_msg_counter;
-int get_value;
+double max_pos;
+double min_pos;
+unsigned int send_bad_posture_msg_counter;
+unsigned int send_good_posture_msg_counter;
 
 /******************************************************************************/
 /* Main Program                                                               */
@@ -59,79 +58,92 @@ void main(void)
     
     /* Clears existing memory associated with variables */
     neutral_pos = 0;
-    real_pos =0;
+    real_pos = 0;
     send_bad_posture_msg_counter = 0;
     send_good_posture_msg_counter = 0;
     PORTD =0x00;
-    PORTAbits.RA0 =0;
+    PORTA =0x00;
+    
     Vibration_ON(0);
     
     /* Reads in initial position of flex sensor*/
     neutral_pos = ADCRead_Pos();
     
-//    PORTDbits.RD1=0xFF;
-//    __delay_ms(200);
-//    PORTDbits.RD1=0x00; 
-//    __delay_ms(200);
-//    PORTDbits.RD1=0xFF;
-//    __delay_ms(200);
-//    PORTDbits.RD1=0x00; 
-    //LED on RD1 blinks twice to show it has initialized
+    /*LED on RD1 blinks twice to show it has initialized on power start up*/
+    PORTDbits.RD1=1;
+    PORTDbits.RD0=0;
+    __delay_ms(200);
+    PORTDbits.RD1=0; 
+    PORTDbits.RD0=1;
+    __delay_ms(200);
+    PORTDbits.RD1=1;
+    PORTDbits.RD0=0;
+    __delay_ms(200);
+    PORTDbits.RD1=0; 
+    PORTDbits.RD0=0;
     
-    while(1)
+    max_pos = neutral_pos + (neutral_pos*0.10);
+    min_pos = neutral_pos - (neutral_pos*0.10);
+    
+   while(1)
    {
-       
-    min_pos = neutral_pos - (neutral_pos*0.10); // gets lower tolerance (-30%)
-    max_pos = neutral_pos + (neutral_pos*0.10); // gets higher tolerance (+30%)    
+       /* Calculates range from neutral position and continuously reads flex 
+         sensor value */
         
-    real_pos = ADCRead_Pos(); //Continuously reads Flex sensor value
+        real_pos = ADCRead_Pos(); 
         
-        if ((real_pos>=min_pos)&&(real_pos<=max_pos)){
+        /*ADC value is within 15% neutral position LED & motor turns off & 
+          bluetooth sends out '1' once until if statement is entered again*/
+        if (real_pos>=min_pos && real_pos<=max_pos){
             
-            PORTDbits.RD0=0;    //Light turns OFF if in 30% range 
-     
-            Vibration_ON(0);    //Vibration turns OFF if in 30% range 
+            PORTDbits.RD0=0;                        
+            Vibration_ON(0);     
+            
             send_bad_posture_msg_counter = 0;
             if(send_good_posture_msg_counter == 0){
+                
                 BT_load_string("1");
-                __delay_ms(100);   //Delay before vibration to prevent
+                __delay_ms(100);   
                 broadcast_BT();
             }
             send_good_posture_msg_counter++;
         }
-     
-        else{
-         
-            PORTDbits.RD0=1;    //Light turns ON if NOT in 30 % range 
+        
+        /*ADC value is NOT within 15% neutral position LED & motor turns ON & 
+          bluetooth sends out '0' once until if statement is entered again*/
+        else if(real_pos<min_pos || real_pos>max_pos){
             
-            __delay_ms(100);   //Delay before vibration to prevent 
-                               //vibration for small movement
+            __delay_ms(1000);  //Delay to allow for small movement
+            PORTDbits.RD0=1;                    
+            Vibration_ON(real_pos/256);  
             
-            Vibration_ON(50);  //Vibration turns ON if NOT in 30 % range
             send_good_posture_msg_counter = 0;
             if (send_bad_posture_msg_counter == 0){
-                BT_load_string("0");
-                __delay_ms(100);   //Delay before vibration to prevent
-                broadcast_BT();
                 
+                BT_load_string("0");
+                __delay_ms(100);   
+                broadcast_BT();      
             }
-            send_bad_posture_msg_counter++;
-             
+            send_bad_posture_msg_counter++;   
         }   
         
-    if (RCIF == 1){ 
+        /*Bluetooth interrupt to allow for neutral position value to change 
+          when a '1' is received and LED blinks */
+        if (RCIF == 1){ 
             
             if(RCREG=='1'){
                 
-                PORTDbits.RD1=1; //Turn on LED
+                PORTDbits.RD1=1; 
                 __delay_ms(200);
                 neutral_pos = ADCRead_Pos();
-                //PORTDbits.RD1=0;
+                PORTDbits.RD1=0;
+                
+                max_pos = neutral_pos + (neutral_pos*0.10);
+                min_pos = neutral_pos - (neutral_pos*0.10);
             }
             
         }
     
-    }
-    
+    } 
 
 }

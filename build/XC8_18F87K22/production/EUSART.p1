@@ -14,21 +14,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6451
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 6451: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
 [v _OSCCONbits `VS278 ~T0 @X0 0 e@4051 ]
-"2709
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 2709:     struct {
-[s S102 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S102 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"2719
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 2719:     struct {
-[s S103 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S103 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"2708
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 2708: typedef union {
-[u S101 `S102 1 `S103 1 ]
-[n S101 . . . ]
-"2730
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 2730: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS101 ~T0 @X0 0 e@3989 ]
 "2487
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 2487:     struct {
 [s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -155,18 +140,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v __delay `JF2663 ~T0 @X0 0 e ]
 [p i __delay ]
-"8360 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 8360: extern volatile __bit OERR __attribute__((address(0x7D59)));
-[v _OERR `Vb ~T0 @X0 0 e@32089 ]
-"7691
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7691: extern volatile __bit CREN __attribute__((address(0x7D5C)));
-[v _CREN `Vb ~T0 @X0 0 e@32092 ]
-"8630
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 8630: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"4233
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 4233: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -605,205 +578,142 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 EUSART.c
-[; ;EUSART.c: 5: void Init_EUSART(void){
+"8 EUSART.c
+[; ;EUSART.c: 8: void Init_EUSART(void){
 [v _Init_EUSART `(v ~T0 @X0 1 ef ]
 {
 [e :U _Init_EUSART ]
 [f ]
-"7
-[; ;EUSART.c: 7:   OSCCONbits.IRCF0=1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"8
-[; ;EUSART.c: 8:   OSCCONbits.IRCF1=1;
-[e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
-"9
-[; ;EUSART.c: 9:   OSCCONbits.IRCF2=1;
-[e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
 "10
-[; ;EUSART.c: 10:   TRISDbits.RD0=0;
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;EUSART.c: 10:   OSCCONbits.IRCF0=1;
+[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
 "11
-[; ;EUSART.c: 11:   TRISDbits.RD1=0;
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
+[; ;EUSART.c: 11:   OSCCONbits.IRCF1=1;
+[e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
 "12
-[; ;EUSART.c: 12:   TRISCbits.RC7=1;
+[; ;EUSART.c: 12:   OSCCONbits.IRCF2=1;
+[e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
+"14
+[; ;EUSART.c: 14:   TRISCbits.RC7=1;
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-"13
-[; ;EUSART.c: 13:   TRISCbits.RC6=1;
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
 "15
-[; ;EUSART.c: 15:   TXSTAbits.TXEN=1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"16
-[; ;EUSART.c: 16:   TXSTAbits.SYNC=0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;EUSART.c: 15:   TRISCbits.RC6=1;
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
 "17
-[; ;EUSART.c: 17:   RCSTAbits.SPEN=1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;EUSART.c: 17:   TXSTAbits.TXEN=1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "18
-[; ;EUSART.c: 18:   TXSTAbits.TX9=0;
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;EUSART.c: 18:   TXSTAbits.SYNC=0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"19
+[; ;EUSART.c: 19:   RCSTAbits.SPEN=1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "20
-[; ;EUSART.c: 20:   BAUDCONbits.BRG16=1;
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;EUSART.c: 20:   TXSTAbits.TX9=0;
+[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
 "22
-[; ;EUSART.c: 22:   SPBRG= 0x67;
-[e = _SPBRG -> -> 103 `i `uc ]
+[; ;EUSART.c: 22:   BAUDCONbits.BRG16=1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
 "24
-[; ;EUSART.c: 24:   RCSTAbits.CREN=1;
+[; ;EUSART.c: 24:   SPBRG= 0x67;
+[e = _SPBRG -> -> 103 `i `uc ]
+"26
+[; ;EUSART.c: 26:   RCSTAbits.CREN=1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"25
-[; ;EUSART.c: 25:   RCSTAbits.RX9=0;
+"27
+[; ;EUSART.c: 27:   RCSTAbits.RX9=0;
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-"28
-[; ;EUSART.c: 28:   PEIE=1;
+"29
+[; ;EUSART.c: 29:   PEIE=1;
 [e = _PEIE -> -> 1 `i `b ]
-"30
-[; ;EUSART.c: 30:   PIE1bits.RCIE=1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 "31
-[; ;EUSART.c: 31:   PIE1bits.TXIE=1;
+[; ;EUSART.c: 31:   PIE1bits.RCIE=1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"32
+[; ;EUSART.c: 32:   PIE1bits.TXIE=1;
 [e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"34
-[; ;EUSART.c: 34: }
+"35
+[; ;EUSART.c: 35: }
 [e :UE 301 ]
 }
-"37
-[; ;EUSART.c: 37: void BT_load_char(char bt)
+"39
+[; ;EUSART.c: 39: void BT_load_char(char bt)
 [v _BT_load_char `(v ~T0 @X0 1 ef1`uc ]
-"38
-[; ;EUSART.c: 38: {
+"40
+[; ;EUSART.c: 40: {
 {
 [e :U _BT_load_char ]
-"37
-[; ;EUSART.c: 37: void BT_load_char(char bt)
-[v _bt `uc ~T0 @X0 1 r1 ]
-"38
-[; ;EUSART.c: 38: {
-[f ]
 "39
-[; ;EUSART.c: 39:    TXREG = bt;
-[e = _TXREG -> _bt `uc ]
+[; ;EUSART.c: 39: void BT_load_char(char bt)
+[v _bt `uc ~T0 @X0 1 r1 ]
 "40
-[; ;EUSART.c: 40:    while(!TXIF);
+[; ;EUSART.c: 40: {
+[f ]
+"41
+[; ;EUSART.c: 41:    TXREG = bt;
+[e = _TXREG -> _bt `uc ]
+"42
+[; ;EUSART.c: 42:    while(!TXIF);
 [e $U 303  ]
 [e :U 304 ]
 [e :U 303 ]
 [e $ ! _TXIF 304  ]
 [e :U 305 ]
-"41
-[; ;EUSART.c: 41:    while(!TRMT);
+"43
+[; ;EUSART.c: 43:    while(!TRMT);
 [e $U 306  ]
 [e :U 307 ]
 [e :U 306 ]
 [e $ ! _TRMT 307  ]
 [e :U 308 ]
-"42
-[; ;EUSART.c: 42:  }
+"44
+[; ;EUSART.c: 44:  }
 [e :UE 302 ]
 }
-"46
-[; ;EUSART.c: 46: void broadcast_BT()
+"48
+[; ;EUSART.c: 48: void broadcast_BT()
 [v _broadcast_BT `(v ~T0 @X0 1 ef ]
-"47
-[; ;EUSART.c: 47: {
+"49
+[; ;EUSART.c: 49: {
 {
 [e :U _broadcast_BT ]
 [f ]
-"48
-[; ;EUSART.c: 48:   TXREG = 13;
-[e = _TXREG -> -> 13 `i `uc ]
-"49
-[; ;EUSART.c: 49:   _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "50
-[; ;EUSART.c: 50: }
+[; ;EUSART.c: 50:   TXREG = 13;
+[e = _TXREG -> -> 13 `i `uc ]
+"51
+[; ;EUSART.c: 51:   _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"52
+[; ;EUSART.c: 52: }
 [e :UE 309 ]
 }
-"53
-[; ;EUSART.c: 53: int BT_get_char()
-[v _BT_get_char `(i ~T0 @X0 1 ef ]
-"54
-[; ;EUSART.c: 54: {
-{
-[e :U _BT_get_char ]
-[f ]
-"55
-[; ;EUSART.c: 55:     if(OERR)
-[e $ ! _OERR 311  ]
 "56
-[; ;EUSART.c: 56:     {
-{
-"57
-[; ;EUSART.c: 57:         CREN = 0;
-[e = _CREN -> -> 0 `i `b ]
-"58
-[; ;EUSART.c: 58:         CREN = 1;
-[e = _CREN -> -> 1 `i `b ]
-"59
-[; ;EUSART.c: 59:     }
-}
-[e :U 311 ]
-"61
-[; ;EUSART.c: 61:     if(RCIF==1)
-[e $ ! == -> _RCIF `i -> 1 `i 312  ]
-"62
-[; ;EUSART.c: 62:     {
-{
-"63
-[; ;EUSART.c: 63:         while(!RCIF);
-[e $U 313  ]
-[e :U 314 ]
-[e :U 313 ]
-[e $ ! _RCIF 314  ]
-[e :U 315 ]
-"64
-[; ;EUSART.c: 64:         return RCREG;
-[e ) -> _RCREG `i ]
-[e $UE 310  ]
-"65
-[; ;EUSART.c: 65:     }
-}
-[e $U 316  ]
-"66
-[; ;EUSART.c: 66:     else
-[e :U 312 ]
-"67
-[; ;EUSART.c: 67:         return 0;
-[e ) -> 0 `i ]
-[e $UE 310  ]
-[e :U 316 ]
-"68
-[; ;EUSART.c: 68: }
-[e :UE 310 ]
-}
-"71
-[; ;EUSART.c: 71: void BT_load_string(char* string)
+[; ;EUSART.c: 56: void BT_load_string(char* string)
 [v _BT_load_string `(v ~T0 @X0 1 ef1`*uc ]
-"72
-[; ;EUSART.c: 72: {
+"57
+[; ;EUSART.c: 57: {
 {
 [e :U _BT_load_string ]
-"71
-[; ;EUSART.c: 71: void BT_load_string(char* string)
+"56
+[; ;EUSART.c: 56: void BT_load_string(char* string)
 [v _string `*uc ~T0 @X0 1 r1 ]
-"72
-[; ;EUSART.c: 72: {
+"57
+[; ;EUSART.c: 57: {
 [f ]
-"73
-[; ;EUSART.c: 73:     while(*string)
-[e $U 318  ]
-[e :U 319 ]
-"74
-[; ;EUSART.c: 74:     BT_load_char(*string++);
+"58
+[; ;EUSART.c: 58:     while(*string)
+[e $U 311  ]
+[e :U 312 ]
+"59
+[; ;EUSART.c: 59:     BT_load_char(*string++);
 [e ( _BT_load_char (1 *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
-[e :U 318 ]
-"73
-[; ;EUSART.c: 73:     while(*string)
-[e $ != -> *U _string `i -> 0 `i 319  ]
-[e :U 320 ]
-"75
-[; ;EUSART.c: 75: }
-[e :UE 317 ]
+[e :U 311 ]
+"58
+[; ;EUSART.c: 58:     while(*string)
+[e $ != -> *U _string `i -> 0 `i 312  ]
+[e :U 313 ]
+"60
+[; ;EUSART.c: 60: }
+[e :UE 310 ]
 }

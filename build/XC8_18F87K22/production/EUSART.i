@@ -4816,13 +4816,15 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
+
+
+
 void Init_EUSART(void){
 
   OSCCONbits.IRCF0=1;
   OSCCONbits.IRCF1=1;
   OSCCONbits.IRCF2=1;
-  TRISDbits.RD0=0;
-  TRISDbits.RD1=0;
+
   TRISCbits.RC7=1;
   TRISCbits.RC6=1;
 
@@ -4838,7 +4840,6 @@ void Init_EUSART(void){
   RCSTAbits.CREN=1;
   RCSTAbits.RX9=0;
 
-
   PEIE=1;
 
   PIE1bits.RCIE=1;
@@ -4846,6 +4847,7 @@ void Init_EUSART(void){
 
 
 }
+
 
 
 void BT_load_char(char bt)
@@ -4863,23 +4865,6 @@ void broadcast_BT()
   _delay((unsigned long)((500)*(16000000/4000.0)));
 }
 
-
-int BT_get_char()
-{
-    if(OERR)
-    {
-        CREN = 0;
-        CREN = 1;
-    }
-
-    if(RCIF==1)
-    {
-        while(!RCIF);
-        return RCREG;
-    }
-    else
-        return 0;
-}
 
 
 void BT_load_string(char* string)

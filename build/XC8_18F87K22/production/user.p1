@@ -482,30 +482,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"22 user.c
-[; ;user.c: 22: void InitApp(void)
+"24 user.c
+[; ;user.c: 24: void InitApp(void)
 [v _InitApp `(v ~T0 @X0 1 ef ]
-"23
-[; ;user.c: 23: {
+"25
+[; ;user.c: 25: {
 {
 [e :U _InitApp ]
 [f ]
-"28
-[; ;user.c: 28:     TRISDbits.RD0 = 0;
+"26
+[; ;user.c: 26:     TRISDbits.RD0 = 0;
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-"29
-[; ;user.c: 29:     TRISDbits.RD1 = 0;
+"27
+[; ;user.c: 27:     TRISDbits.RD1 = 0;
 [e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-"30
-[; ;user.c: 30:     TRISDbits.RD7 = 0;
+"28
+[; ;user.c: 28:     TRISDbits.RD7 = 0;
 [e = . . _TRISDbits 1 7 -> -> 0 `i `uc ]
-"31
-[; ;user.c: 31:     TRISAbits.RA0 = 1;
+"29
+[; ;user.c: 29:     TRISAbits.RA0 = 1;
 [e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-"32
-[; ;user.c: 32:     TRISBbits.RB0 = 1;
+"30
+[; ;user.c: 30:     TRISBbits.RB0 = 1;
 [e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-"45
-[; ;user.c: 45: }
+"31
+[; ;user.c: 31: }
 [e :UE 301 ]
 }

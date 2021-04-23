@@ -4816,6 +4816,10 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
+
+
+
+
     void Init_ADC(void)
 {
     TRISAbits.RA0 = 1;
@@ -4842,21 +4846,25 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
     ADCON0bits.ADON = 1;
 
 
-
 }
 
 
 
 
 
- unsigned int ADCRead_Pos(){
-
-
+ double ADCRead_Pos(){
+  _delay((unsigned long)((2)*(16000000/4000.0)));
   GO = 1;
-  unsigned int temp;
 
-  temp = ADRESL;
-  temp = temp + (ADRESH << 8);
-  return temp;
+  for(int i = 0; i < 8; i++){
+    if (i == 7) {
+        double temp;
 
+        temp = ADRESL;
+        temp = temp + (ADRESH << 8);
+        return temp;
+
+    }
+  }
+  return -1;
 }

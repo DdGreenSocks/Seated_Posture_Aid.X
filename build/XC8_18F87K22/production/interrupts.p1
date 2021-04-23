@@ -441,17 +441,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "1 ./ADC_Read.h
-[; ;./ADC_Read.h: 1: unsigned int neutral_pos;
-[v _neutral_pos `ui ~T0 @X0 1 e ]
+[; ;./ADC_Read.h: 1: double neutral_pos;
+[v _neutral_pos `d ~T0 @X0 1 e ]
 "2
-[; ;./ADC_Read.h: 2: unsigned int real_pos;
-[v _real_pos `ui ~T0 @X0 1 e ]
-"1 ./PWM.h
-[; ;./PWM.h: 1: unsigned int duty_cycle;
-[v _duty_cycle `ui ~T0 @X0 1 e ]
-"2
-[; ;./PWM.h: 2: unsigned int temp;
-[v _temp `ui ~T0 @X0 1 e ]
+[; ;./ADC_Read.h: 2: double real_pos;
+[v _real_pos `d ~T0 @X0 1 e ]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
 "34 interrupts.c
 [; ;interrupts.c: 34: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
@@ -461,20 +455,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _high_isr ]
 [f ]
-"61
-[; ;interrupts.c: 61: }
+"48
+[; ;interrupts.c: 48: }
 [e :UE 301 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"93
-[; ;interrupts.c: 93: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
+"80
+[; ;interrupts.c: 80: void __attribute__((picinterrupt(("low_priority")))) low_isr(void)
 [v _low_isr `(v ~T41 @X0 1 ef ]
-"101
-[; ;interrupts.c: 101: {
+"88
+[; ;interrupts.c: 88: {
 {
 [e :U _low_isr ]
 [f ]
-"138
-[; ;interrupts.c: 138: }
+"118
+[; ;interrupts.c: 118: }
 [e :UE 302 ]
 }

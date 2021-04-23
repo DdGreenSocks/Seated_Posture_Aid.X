@@ -479,85 +479,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 PWM.c
-[; ;PWM.c: 4: void Init_PWM(void)
+"3 PWM.c
+[; ;PWM.c: 3: void Init_PWM(void)
 [v _Init_PWM `(v ~T0 @X0 1 ef ]
-"5
-[; ;PWM.c: 5: {
+"4
+[; ;PWM.c: 4: {
 {
 [e :U _Init_PWM ]
 [f ]
-"6
-[; ;PWM.c: 6:     T2CONbits.T2CKPS1 = 1;
+"5
+[; ;PWM.c: 5:     T2CONbits.T2CKPS1 = 1;
 [e = . . _T2CONbits 1 1 -> -> 1 `i `uc ]
-"7
-[; ;PWM.c: 7:     T2CONbits.TMR2ON = 1;
+"6
+[; ;PWM.c: 6:     T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"8
-[; ;PWM.c: 8:     PR2 = 194;
+"7
+[; ;PWM.c: 7:     PR2 = 194;
 [e = _PR2 -> -> 194 `i `uc ]
-"10
-[; ;PWM.c: 10:     CCP1CONbits.CCP1M = 0x0c;
+"9
+[; ;PWM.c: 9:     CCP1CONbits.CCP1M = 0x0c;
 [e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-"12
-[; ;PWM.c: 12:     CCP1CONbits.P1M1 = 0;
+"11
+[; ;PWM.c: 11:     CCP1CONbits.P1M1 = 0;
 [e = . . _CCP1CONbits 1 7 -> -> 0 `i `uc ]
-"13
-[; ;PWM.c: 13:     CCP1CONbits.P1M0 = 1;
+"12
+[; ;PWM.c: 12:     CCP1CONbits.P1M0 = 1;
 [e = . . _CCP1CONbits 1 6 -> -> 1 `i `uc ]
-"15
-[; ;PWM.c: 15:     CCPR1L = 0x61;
+"14
+[; ;PWM.c: 14:     CCPR1L = 0x61;
 [e = _CCPR1L -> -> 97 `i `uc ]
-"16
-[; ;PWM.c: 16:     CCP1CONbits.DC1B1 = 1;
+"15
+[; ;PWM.c: 15:     CCP1CONbits.DC1B1 = 1;
 [e = . . _CCP1CONbits 1 5 -> -> 1 `i `uc ]
-"17
-[; ;PWM.c: 17:     CCP1CONbits.DC1B0 = 0;
+"16
+[; ;PWM.c: 16:     CCP1CONbits.DC1B0 = 0;
 [e = . . _CCP1CONbits 1 4 -> -> 0 `i `uc ]
-"20
-[; ;PWM.c: 20: }
+"18
+[; ;PWM.c: 18: }
 [e :UE 301 ]
 }
-"26
-[; ;PWM.c: 26: void Vibration_ON(unsigned int percentage) {
-[v _Vibration_ON `(v ~T0 @X0 1 ef1`ui ]
+"23
+[; ;PWM.c: 23: void Vibration_ON(double percentage) {
+[v _Vibration_ON `(v ~T0 @X0 1 ef1`d ]
 {
 [e :U _Vibration_ON ]
-[v _percentage `ui ~T0 @X0 1 r1 ]
+[v _percentage `d ~T0 @X0 1 r1 ]
 [f ]
-"28
-[; ;PWM.c: 28:     long output;
+"25
+[; ;PWM.c: 25:     long output;
 [v _output `l ~T0 @X0 1 a ]
-"30
-[; ;PWM.c: 30:     if (percentage > 100) {
-[e $ ! > _percentage -> -> 100 `i `ui 303  ]
+"27
+[; ;PWM.c: 27:     if (percentage > 100) {
+[e $ ! > _percentage -> -> 100 `i `d 303  ]
 {
-"31
-[; ;PWM.c: 31:         return;
+"28
+[; ;PWM.c: 28:         return;
 [e $UE 302  ]
-"32
-[; ;PWM.c: 32:     }
+"29
+[; ;PWM.c: 29:     }
 }
 [e :U 303 ]
-"34
-[; ;PWM.c: 34:     output = ((long) (PR2 + 1)) << 2;
+"31
+[; ;PWM.c: 31:     output = ((long) (PR2 + 1)) << 2;
 [e = _output << -> + -> _PR2 `i -> 1 `i `l -> 2 `i ]
-"35
-[; ;PWM.c: 35:     output= output * ((long) percentage);
+"32
+[; ;PWM.c: 32:     output= output * ((long) percentage);
 [e = _output * _output -> _percentage `l ]
-"36
-[; ;PWM.c: 36:     output = output / 100;
+"33
+[; ;PWM.c: 33:     output = output / 100;
 [e = _output / _output -> -> 100 `i `l ]
-"38
-[; ;PWM.c: 38:     CCPR1L = output >> 2;
+"36
+[; ;PWM.c: 36:     CCPR1L = output >> 2;
 [e = _CCPR1L -> >> _output -> 2 `i `uc ]
-"39
-[; ;PWM.c: 39:     DC1B1 = (output & 2) >> 1;
+"37
+[; ;PWM.c: 37:     DC1B1 = (output & 2) >> 1;
 [e = _DC1B1 -> >> & _output -> -> 2 `i `l -> 1 `i `b ]
-"40
-[; ;PWM.c: 40:     DC1B0 = (output & 1);
+"38
+[; ;PWM.c: 38:     DC1B0 = (output & 1);
 [e = _DC1B0 -> & _output -> -> 1 `i `l `b ]
-"42
-[; ;PWM.c: 42: }
+"40
+[; ;PWM.c: 40: }
 [e :UE 302 ]
 }

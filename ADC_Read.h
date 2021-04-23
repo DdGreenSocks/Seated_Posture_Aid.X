@@ -1,7 +1,7 @@
-unsigned int neutral_pos;
-unsigned int real_pos;
+double neutral_pos;
+double real_pos;
 
 void Init_ADC(void);
 
-unsigned int ADCRead_Pos();
+double ADCRead_Pos(void);
 
